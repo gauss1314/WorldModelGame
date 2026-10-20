@@ -141,14 +141,14 @@ With your agreement, and only then, I would like to include the species describe
 
 (b) I propose releasing catalog data under CC0, which lets anyone, companies included, reuse it for any purpose without giving credit; credit would rest on the records and on citation norms. The alternative is CC BY 4.0, which requires attribution. As I understand it, neither can be revoked once data is released, so I am asking first. Which would you prefer for data from your work?
 
-(c) How would you like to be credited? Records would show your names and classification as published. Later community revisions (for example, if two species turn out to be connected) would be recorded with their history, and your original classification would stay visible. Is that acceptable? Our draft tutorial, which retraces your discovery of Orbium, also has your name in its working title; I will change that if you prefer.
+(c) How would you like to be credited? Records would show your names and classification as published. Later community revisions (for example, if two species turn out to be connected) would be recorded with their history, and your original classification would stay visible. Is that acceptable? Our draft tutorial retraces your discovery of Orbium. Its working title does not use your name; we would name it after you only if you would like that.
 
 (d) If you are ever interested, your advice or review would be very welcome, at any stage and with no obligation.
 
 A few things you should know:
 
 - The catalog would use a fixed integer version of Lenia (lenia-q16), meant to reproduce bit for bit on any machine; our first four weeks of work test whether it does. Rounding to it may change how some species behave. We would label those clearly rather than adjust them to fit.
-- For internal testing only, we plan to run a few of your species, such as Orbium, from the parameters in your paper. Nothing about your species will be published without your agreement, and we will stop if you prefer.
+- For internal testing only, we plan to run about ten of your species, such as Orbium, from the parameters published in your paper. Nothing about your species will be published without your agreement, and we will stop if you prefer.
 - The project has no income. If it goes ahead, a small company may run it, funded by optional extras such as cosmetics and prints; the catalog data would stay free. We will never sell naming rights or priority, or issue tokens or NFTs, though under CC0 we could not control what others do.
 - Your code is MIT-licensed, and we will follow its terms wherever we use it. I am not sure whether that licence is meant to cover the species data, so I am asking rather than assuming.
 - A "no" is completely fine. We would then copy none of your data into the catalog. We would only cite your paper and, when a player re-finds one of your species, point to your paper rather than treat it as new.
