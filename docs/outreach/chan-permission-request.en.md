@@ -110,7 +110,7 @@
 - 逐项结果只记在私密位置 [存档位置]，不进仓库；本节的表只是模板。原始邮件也存放在那里，不贴原文，不写对方的邮箱。
 - 公开的决策日志 `docs/decision-log.md` 只写对外可见的结果，例如"文献物种：按退路处理，见 §19.1 修订"或"文献物种：已获作者许可导入，许可为 CC0"，不写对方答复的内容，也不写"不同意"。
 - 对外写"经作者许可导入"之前，先在确认信里问对方是否同意这样写。
-- **邮件里的承诺**写进决策日志，作为命名法规 v0、文献映射方案和第一阶段 PRD 的约束：(1) 不为了让文献种在 lenia-q16 中存活而调参；(2) 文献种给任何人（包括内测玩家）看之前，先给对方预览；(3) 原名和原分类在条目上始终可见，修订留痕；(4) 获准之前不公开内部测试中涉及文献种的结果；(5) 对方要求时停止内部使用；(6) 内部测试只按 2019 论文发表的参数运行约 10 个物种（如 Orbium），不用仓库数据文件，也不加载 Chan 程序自带的物种库（即 D-040 第 1–6 条）。
+- **邮件里的承诺**写进决策日志，作为命名法规 v0、文献映射方案和第一阶段 PRD 的约束：(1) 不为了让文献种在 lenia-q16 中存活而调参；(2) 文献种给任何人（包括内测玩家）看之前，先给对方预览；(3) 原名和原分类在条目上始终可见，修订留痕；(4) 获准之前不公开内部测试中涉及文献种的结果；(5) 对方要求时停止内部使用；(6) 内部测试只按 2019 论文发表的参数运行约 10 个物种（如 Orbium），以及它们改变 R、T 的变体和用这些参数的随机汤，不用仓库数据文件，也不加载 Chan 程序自带的物种库；(7) 没有对方的明确同意，不把新种放进对方的属，也不把对方的种改到别的属（即 D-040 第 1–6 条和第 9 条）。
 - 需要同步修改的文档：GDD §14.5 的 `license` 字段和 §8.5(9) 的署名示例、研究简介、第 0 阶段计划里"确认文献物种的导入许可"一项。
 
 | 字段 | 内容 |
@@ -150,7 +150,7 @@ With your agreement, and only then, I would like to include the species describe
 A few things you should know:
 
 - The catalog would use a fixed integer version of Lenia (lenia-q16), meant to reproduce bit for bit on any machine; our first four weeks of work test whether it does. Rounding to it may change how some species behave. We would label those clearly rather than adjust them to fit.
-- For internal testing only, we plan to run about ten of your species, such as Orbium, from the parameters published in your paper. Nothing about your species will be published without your agreement, and we will stop if you prefer.
+- For internal testing only, we plan to run about ten of your species, such as Orbium, from the parameters published in your paper, plus simple variants of them (for example a larger radius or a finer time step, and random soups under those parameters). Nothing about your species will be published without your agreement, and we will stop if you prefer.
 - The project has no income. If it goes ahead, a small company or a non-profit (not yet decided) may run it, funded by optional extras such as cosmetics and prints, and by grants; the catalog data would stay free. We will never sell naming rights or priority, or issue tokens or NFTs, though under CC0 we could not control what others do.
 - Your code is MIT-licensed, and we will follow its terms wherever we use it. I am not sure whether that licence is meant to cover the species data, so I am asking rather than assuming.
 - A "no" is completely fine. We would then copy none of your data into the catalog. We would only cite your paper and, when a player re-finds one of your species, point to your paper rather than treat it as new.

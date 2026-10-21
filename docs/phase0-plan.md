@@ -29,7 +29,7 @@
 
 ### 1.3 本计划对 GDD 的具体化
 
-GDD §19.1 继续标准的 7 条解释（6 个配置；G1 加 G2；文献许可的退路；伦理审查的退路；≥ 5 次试玩；精度的判定规则；顾问的书面确认）已移到决策日志 [D-046](./decision-log.md#d-046)，W1 由创始人确认。评审按它判定。
+GDD §19.1 继续标准的 8 条解释（6 个配置；G1 加 G2；文献许可的退路；伦理审查的退路；≥ 5 次试玩；精度的判定规则；顾问的书面确认；G4 的"场"怎么计）已移到决策日志 [D-046](./decision-log.md#d-046)，W1 由创始人确认。评审按它判定。
 
 ## 2. 人员与工作线
 
@@ -321,7 +321,7 @@ W1 扫描核（R 5–60，量化误差）和查找表（T 5–40，最小的非�
 
 | 产出 | 路径 | 状态 | 何时 |
 |---|---|---|---|
-| 本计划；决策日志 | [phase0-plan.md](./phase0-plan.md)；[decision-log.md](./decision-log.md) | 草稿 v0.2 | W1 第 1 天审阅；日志持续更新 |
+| 本计划；决策日志 | [phase0-plan.md](./phase0-plan.md)；[decision-log.md](./decision-log.md) | 计划草稿 v0.2；日志草稿 v0.3 | W1 第 1 天审阅；日志持续更新 |
 | 研究简介（英文）及发送前检查清单；致 Bert Chan 的许可请求（英文） | [research-brief.en.md](./outreach/research-brief.en.md)；[检查清单](./outreach/research-brief-checklist.md)；[chan-permission-request.en.md](./outreach/chan-permission-request.en.md) | 草稿 | W1 第 3 天发出 |
 | 宇宙规范 lenia-q16 草案（附测试向量 v0） | [spec/lenia-q16-draft.md](./spec/lenia-q16-draft.md) | 草稿 v0.1（正文已起草） | 正文 v0.1 W1；v0.3 W4 第 3 天 |
 | 命名法规 v0；访谈计划与开放问题清单（含伦理审查申请的进度）；法律备忘：名称商标、许可与知识产权 | [naming-code-v0.md](./naming-code-v0.md)；[research/interview-plan.md](./research/interview-plan.md)；[legal-memo.md](./legal-memo.md) | 草稿 | 命名法规初稿 W3、定稿 W4（"自写"时推到延长期）；访谈计划 v0 W1，清单 v0 W4 第 3 天；法律备忘骨架 W1、初稿 W3 |
