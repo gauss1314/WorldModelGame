@@ -65,7 +65,8 @@
 
 10. **按收件人定制**（只改邮件正文，不改链接版）
     - 开头一两句：为什么联系对方，读过对方的哪项工作。不群发，不互相抄送。
-    - 在邮件正文里点出和对方最相关的一两个开放问题：Inria Flowers 团队、ASAL 作者、Leniabreeder 作者（基准、AI 探险队接口、好奇心数据）；Hudcová 等（宇宙图底图、相图能否推广）；Catagolue 维护者（普查、志愿算力、目录的组织方式）。如果联系 Davis 或 Gupta：非柏拉图型有多普遍、操作性定义是否合适；碰撞稳健的移动体和信号路由。
+    - 在邮件正文里点出和对方最相关的一两个开放问题：Lenia 和 Flow-Lenia 自动探索论文的作者、ASAL 作者、Leniabreeder 作者（基准、AI 探险队接口、好奇心数据）；Hudcová 等（宇宙图底图、相图能否推广）；Catagolue 维护者（普查、志愿算力、目录的组织方式）。如果联系 Davis 或 Gupta：非柏拉图型有多普遍、操作性定义是否合适；碰撞稳健的移动体和信号路由。
+    - 邮件末尾加一句：对方所在机构能否协助伦理审查（D-036；W2 只有约 2 场访谈，不能只靠访谈里问）。
     - Chan 不在这份名单里，见第 5 条。
     - 不要暗示被引用的作者或其他收件人已经认可或参与本项目。
 
@@ -78,7 +79,7 @@
 下面 4 个追问原在简介的 "Questions we would love to ask you" 里（原编号 4–7）。简介现在只保留三个核心问题和 "what have we missed?"。写访谈计划 v0（第 0 阶段计划 §3.1 的 W1 任务）时可以直接取用。英文原文照录。
 
 4. Which fields and measurements would a catalog record need for your work, and in what format?
-5. What reproducibility evidence would you need before citing a record? For example: an independent re-run, a hash chain, an archived engine version, or a published spec.
+5. What reproducibility evidence would you need before citing a record? (Only if the answer stalls, offer examples: an independent re-run, a hash chain, an archived engine version, or a published spec. Note in the record whether the answer came before or after the examples.)
 6. Is it acceptable to you to treat one specific integer discretisation as "the" universe? Would a Platonic / non-Platonic label be useful, or misleading?
 7. Would a human-curated catalog be useful as a benchmark for automated discovery? What task and measure would make it worth using?
 

@@ -112,7 +112,7 @@ Three questions we ask everyone:
 
 And, of course: what have we missed, and whose work should we be crediting?
 
-**How we handle the conversation.** We take notes. We will record, quote you or name you publicly only with your explicit permission. Everyone we interview will receive our summary of the open questions we collect, without attributing anything to anyone who has not agreed.
+**How we handle the conversation.** We take notes. We will record, quote you or name you publicly only with your explicit permission. Everyone we interview will receive our summary of the open questions we collect; an anonymous version of that list will also be published in the project's public repository. Nothing in either is attributed to anyone who has not agreed.
 
 ---
 

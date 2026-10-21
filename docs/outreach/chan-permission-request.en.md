@@ -84,7 +84,7 @@
 - **不算许可**：沉默、已读、自动回复、点赞。
 - **有条件的同意**：许可范围以答复的文字为准，只答应了一部分就只导入那一部分。
 - **他人的权利**：如果对方说部分物种或数据另有作者或权利人，那一部分要另外取得许可。论文正文和图的版权可能属于期刊出版方 [verify]：只从仓库取参数和模式，不复制论文的图和正文，图版由我们从数据重新生成。
-- **确认句**：对方同意 (a)(b) 之后，回信附一句话，请对方回复 "yes"："To confirm: as the rights holder, you dedicate the parameters and patterns of the species described in Chan (2019), as found in [repository file paths, verify], to the public domain under CC0 1.0 [or: license them to everyone under CC BY 4.0, credited as "..."; or: confirm that they are covered by the repository's MIT licence, with its notice kept], and you are happy for Naturalis (working title) to include them in its catalog. A one-word "yes" is enough." 放弃或许可要由权利人本人作出，不是同意本项目代为发布（法律备忘 §4.2）[待法务确认]。收到 "yes" 之前不公开发布导入的数据。
+- **确认句**：对方同意 (a)(b) 之后，回信附一句话，请对方回复 "yes"："To confirm: to the extent you hold rights in the parameters and patterns of the species described in Chan (2019), as found in [repository file paths, verify], you dedicate them to the public domain under CC0 1.0 [or: license them to everyone under CC BY 4.0, credited as "..."] [or: license them to everyone under the MIT licence, with your copyright notice kept with every copy], and you are happy for Naturalis (working title) to include them in its catalog. A one-word "yes" is enough."（措辞与法律备忘 §4.2 第 0 点一致；用 "to the extent you hold rights"，不要求对方声明自己是唯一的权利人。） 放弃或许可要由权利人本人作出，不是同意本项目代为发布（法律备忘 §4.2）[待法务确认]。收到 "yes" 之前不公开发布导入的数据。
 
 ### 6. 退路：没有回复，或答复是"不"
 
@@ -92,7 +92,7 @@
 
 1. **只引用和链接。** 不导入参数和模式数据，不再发布论文或仓库里的任何数据文件。图鉴设一个"文献"页，列出论文和代码仓库的链接。
 2. **按需建文献名条目，保留文献优先权。** 不一次性批量列出论文里全部 400 多个名字和科。评审确认某个玩家的发现对应论文里的某个种时，才建一条**文献引用条目**：学名（按原文的双名）、原作者署名、原文链接，不附参数和模式标本。状态建议新增 `literature_reference`（是否占用 LEN 编号见 D-042(a)：建议占用，W4 评审会、命名法规 v0 定稿前定）。批量列出名字和科是否可行，列入法律备忘 [待法务确认]；即使可行，对方明确拒绝时也不批量列出。
-3. **让玩家自己重新找到。** 玩家在探索中碰到已知种是正常的。经评审确认后，这次发现登记为该文献种的**再发现**：名字仍然是 Chan 的，玩家记采集者的功劳，不获得命名权。玩家的成体快照可以作为这个种在 lenia-q16 中的**参考标本**，但不是这个名字的模式标本，以免改写原作者的分类。
+3. **让玩家自己重新找到。** 玩家在探索中碰到已知种是正常的。经评审确认后，这次发现登记为该文献种的**再发现**：名字仍然是 Chan 的，玩家记采集者的功劳，不获得命名权。玩家的成体快照可以作为这个种在 lenia-q16 中的**参考标本**，但不是这个名字的模式标本，以免改写原作者的分类；没有许可时，条目不写参考标本与原文参数的差别（命名法规 v0 第 44 条第 3 款）。
 4. **团队不按论文参数系统地重建整张物种表。** 那样做实质上是绕开了对方的拒绝。也不用悬赏、考察季、新手考察区或 AI 普查去专门复原文献种。
 5. **教程（§3.3(4)）**：拒绝涉及数据时，教程默认把玩家带到 Orbium 附近的区域自己找，找到后显示文献名和原文链接；只有对方明确允许引用已发表的参数时，才按论文参数在玩家眼前长出 Orbium。教程是否用 Chan 的名字，按 (c) 的答复；获得同意之前用中性的工作名。
 6. **对外措辞**：文献条目页写"本图鉴未收录该物种的原始数据，详见原文"。不对外说"作者拒绝了"，也不替对方解释原因。
@@ -141,9 +141,9 @@ With your agreement, and only then, I would like to include the species describe
 
 (a) May we import the parameters and patterns of the species in your 2019 paper, taken from the Lenia repository, into an open catalog? Your later work would be a separate question.
 
-(b) I propose releasing catalog data under CC0, which lets anyone, companies included, reuse it for any purpose without giving credit; credit would rest on the records and on citation norms. The alternative is CC BY 4.0, which requires attribution. As I understand it, neither can be revoked once data is released, so I am asking first. Which would you prefer for data from your work?
+(b) I propose releasing catalog data under CC0, which lets anyone, companies included, reuse it for any purpose without giving credit; credit would rest on the records and on citation norms. For data from your work, this would mean you dedicating it to the public domain under CC0, or, if you prefer, licensing it to everyone under CC BY 4.0, which requires attribution. As I understand it, neither can be revoked once data is released, so I am asking first. Which would you prefer?
 
-(c) How would you like to be credited? Records would show your names and classification as published. Later community revisions (for example, if two species turn out to be connected) would be recorded with their history, and your original classification would stay visible. Is that acceptable? Our draft tutorial retraces your discovery of Orbium. Its working title does not use your name; we would name it after you only if you would like that.
+(c) How would you like to be credited, including the year (2018 on arXiv, or 2019 in the journal)? Records would show your names and classification as published. Later community revisions (for example, if two species turn out to be connected) would be recorded with their history, and your original classification would stay visible. Is that acceptable? We would not place new species in your genera, or move your species to other genera, unless you are happy with that. Our draft tutorial retraces your discovery of Orbium. Its working title does not use your name; we would name it after you only if you would like that.
 
 (d) If you are ever interested, your advice or review would be very welcome, at any stage and with no obligation.
 
