@@ -44,6 +44,7 @@
 - [ ] 核实仓库里哪些文件含 2019 年论文的物种参数和模式，记下路径，填进第 5 节的确认句 [verify]
 - [ ] 对方的邮箱从公开来源核实（论文的作者信息或 GitHub 主页），记下来源；不猜测地址
 - [ ] 称呼用 "Dear Bert Chan,"，不猜测头衔
+- [ ] 如果 D-013 决定改名或改用代号，发信前把主题和正文里的 "Naturalis (working title)" 全部替换
 - [ ] 项目名写作 "Naturalis (working title)"，不把名字说成定名（与荷兰莱顿的 Naturalis Biodiversity Center 同名，§22(1)）
 - [ ] 正文没有声称已有团队、资金、玩家、合作方或以前的联系
 - [ ] 单独发送，不抄送其他研究者
@@ -83,7 +84,7 @@
 - **不算许可**：沉默、已读、自动回复、点赞。
 - **有条件的同意**：许可范围以答复的文字为准，只答应了一部分就只导入那一部分。
 - **他人的权利**：如果对方说部分物种或数据另有作者或权利人，那一部分要另外取得许可。论文正文和图的版权可能属于期刊出版方 [verify]：只从仓库取参数和模式，不复制论文的图和正文，图版由我们从数据重新生成。
-- **确认句**：对方同意 (a)(b) 之后，回信附一句话，请对方回复 "yes"："To confirm: you are happy for the Naturalis (working title) project to copy the parameters and patterns of the species described in Chan (2019), as found in [repository file paths, verify], into its catalog and to publish them under [CC0 1.0 / CC BY 4.0, credited as "..."]. A one-word "yes" is enough." 收到 "yes" 之前不公开发布导入的数据。确认句的措辞列入法律备忘 [待法务确认]。
+- **确认句**：对方同意 (a)(b) 之后，回信附一句话，请对方回复 "yes"："To confirm: as the rights holder, you dedicate the parameters and patterns of the species described in Chan (2019), as found in [repository file paths, verify], to the public domain under CC0 1.0 [or: license them to everyone under CC BY 4.0, credited as "..."; or: confirm that they are covered by the repository's MIT licence, with its notice kept], and you are happy for Naturalis (working title) to include them in its catalog. A one-word "yes" is enough." 放弃或许可要由权利人本人作出，不是同意本项目代为发布（法律备忘 §4.2）[待法务确认]。收到 "yes" 之前不公开发布导入的数据。
 
 ### 6. 退路：没有回复，或答复是"不"
 
