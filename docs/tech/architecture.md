@@ -199,7 +199,7 @@
 | `GET /specimens/{prov}/dedup` | 本人 | → 查重报告（指向私密对象的项写 "private"） | — | — |
 | `GET /specimens/{prov}/nearest` | 本人 | → 最近的已知种（只读，只比公开对象） | — | — |
 | **观察与观察志**（F27；交接规格 CH14） | | | | |
-| `POST /observations/credentials` | 会话 | `target`、`mode` → 凭据 {target, mode, issued_at, r（只在 exact）, nonce, mac}，服务器不保存 | — · 每日 200 | — |
+| `POST /observations/credentials` | 会话 | `target`、`mode` → 凭据 {target, mode, issued_at, r（只在 exact）, nonce, mac}，服务器不保存；MAC 输入含申请者的账户编号（不写进凭据），上传时按上传者验签，防止转用（交接规格第 12 节） | — · 每日 200 | — |
 | `POST /journal` | 会话 | LEN、凭据、第 r 步哈希 → 观察志条目（`via: exact`） | （账户, LEN） | `challenge_failed`（CH-E21） |
 | **描述与名称**（F21、F22、F33） | | | | |
 | `GET /descriptions/draft?prov=` | 本人 | → 描述助手的模板草稿（只含证书和查重报告里的数，F33），带模板版本（AI 助手 §2.1，【待 AI3】）；不调用模型 | — | — |
