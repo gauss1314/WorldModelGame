@@ -241,7 +241,7 @@
 | 预检；幻影 | Pre-check【AC13】；（幻影不上界面，写"只在浮点预览中出现"） | `precheck` ok / phantom；`precheck_notes` | 用整数实现从成体快照复跑（本机先跑，服务器复跑为准）；只在浮点预览里活着的结构 | GDD §8.2；D-029；交接规格第 7 节、CH8 |
 | 鉴定；送检；鉴定证书 | assay; send for assay; assay certificate | `assay.*`；`cert:sha256:…` | 服务器用参考实现跑标准测试，结果签名 | GDD §8.3；assay v1 |
 | 存活；局域性；周期；对称；速度 | survival; locality; period; symmetry; speed | `survival`；`locality` individual / expander；`period`；`symmetry`；`speed` | 证书的测量值。存活按时间单位计【待 D-033】；速度单位 R/TU（AS7）。`locality` 是局域性，不是"模式产地" | GDD §8.3；assay v1 §3 |
-| 查重；查重存疑；连续性检验 | duplicate check; Possible duplicate; continuity test | `dedup.decided`：`auto_new` / `auto_same:LEN` / `grey:RVW-…`；`continuity` | 与图鉴、待描述库和审核中的描述比对；自动判不了的灰色地带；一步步挪参数看能否连续变成对方 | GDD §8.4；dedup v1 |
+| 查重；查重存疑；连续性检验 | duplicate check; Possible duplicate; continuity test | `dedup.decided`：`auto_new` / `auto_same:LEN` / `grey`（评审编号在评审对象上，不在报告里，dedup DD16）；`continuity` | 与图鉴、待描述库和审核中的描述比对；自动判不了的灰色地带；一步步挪参数看能否连续变成对方 | GDD §8.4；dedup v1 |
 | 行为大类 | behaviour class | `classes`；实体"行为类别"`class` | 8 个机器标签（第 3.4 节），不是系统分类。数据模型的"行为类别"还包括第二阶段玩家提议的类别 | GDD §8.3；assay v1 §4；数据模型 §3.6 |
 | 离散化依赖；柏拉图型 / 非柏拉图型 | discretisation dependence; Platonic / non-Platonic (operational) | `discretization_runs`、`discretization_range`；`platonic` | 换 R、T 复跑的结果；在测过的更细的 R、T 下是否都存活（操作性定义，不等于 Davis 2024 的判据） | GDD §5.2、§8.3；assay v1 §3.7 |
 | 自愈指数 | self-repair index | `self_repair` | 扰动后的恢复率 | GDD §8.3 |
@@ -354,7 +354,6 @@
 | 性能 CP18 | 每种色图相隔 1/8 量程的 CIEDE2000 ≥ 10 | 粗算：L* 线性的灰阶在两端约 7.6，γ 0.5 的高对比在顶端约 4，都过不了（第 3.1 节） | 灰阶类改 ≥ 7 或换度量；高对比另定构造或放宽 |
 | 纸面生成器 PG6 | 一张图版中英双语 | AC6 建议图版只用拉丁字母（第 4.1 节） | 【待决策日志 E.3：图版上有没有中文】图版 v0 开工前由创始人在两文之间定；选双语时中文字体许可交法律备忘 §5.5、Q16 |
 | 数据模型 §4.1 | 已鉴定 → 评审中（grey） | 按 dedup v1 §8.1：查重存疑留在待描述，提交描述时才开评审（dedup 已提） | 统一后改第 7 节的表 |
-| 普查 CA14 的区内说明 | "AI 普查发现未描述物种较多" / "The AI census found many undescribed species here" | 第 6.2 节禁用"AI 发现了"；AI 助手 v0 第 3.6 节的 `novice` 原因码和线框 A3 写"采到……未描述标本" | 普查改为"AI 普查在这里采到的未描述标本较多" / "the AI census collected many undescribed specimens here" |
 | GDD §8.6 | 观察记录是"其他玩家的目击" | 观察记录指描述者本人的记录（法规第 16 条） | GDD 修订时改为"观察者" |
 | GDD §7（虚构示例） | 预检显示"可能是新的" | 写"附近没有很像的已登记种（预检估计，以查重为准）"（第 6.2 节） | GDD 修订时改示例 |
 | PRD 第 7 节 | S1–S5 没有文案和术语表的工作量 | 单人约 6–10 人日（第 13 节） | 补进 S3 或 S5 |
