@@ -324,7 +324,7 @@
 
 - `/s/1` 的 1 是链接格式版本。旧版本永远能解析；新格式用 `/s/2`。
 - 状态放在 `#` 之后，浏览器不把它发给服务器。`p` 是 72 字节参数记录的 base64url，总是内联，规范版本就在记录里。`z` 是状态记录的 deflate-raw 压缩再 base64url（浏览器自带的 CompressionStream [verify：目标浏览器都支持]）；压缩后不超过 6 KiB（暂定，第一阶段实测）才内联，否则省略 `z`，按 `h` 从内容存储取。解压后必须核对 `h`，不一致就拒绝运行。
-- 分享未描述标本前的提示，以及野外笔记默认隐藏参数，见法规第 11 条和 D-015 建议。经链接得到的标本，探索路径的 `seed` 记为 link（法规第 11 条第 3 款）。编号和哈希都不依赖域名；换名时旧域名永久重定向，定名前先用中性域名（暂定）。
+- 分享未描述标本前的提示见法规第 11 条和交接规格 CH16；野外笔记导出时一律隐藏参数（D-015 建议，§3.5）。经链接得到的标本，探索路径的 `seed` 记为 link（法规第 11 条第 3 款）。编号和哈希都不依赖域名；换名时旧域名永久重定向，定名前先用中性域名（暂定）。
 - **嵌入**：PRD 第 4 节把嵌入代码推迟到 alpha 首版之后（新提议），本文先定格式，路径 `/embed/1/` 先保留。实现时用单线程的 WASM 参考实现（第一阶段不用线程【待 D-037】），不需要跨源隔离（COOP/COEP），能放进别人的网页。默认整数精确运行；跑不动时是降为浮点预览并标明，还是按交接规格原则 6（对外只用整数帧）只慢放或显示静态整数帧（客户端性能第 14 节第 1 条），待创始人定。
 - **降级**：遇到不认识的规范标识，不得换别的版本运行（规范 §3）；查看器从归档里加载该版本的引擎（GDD §14.2(6)），加载不了就只显示编号、哈希和静态图，并说明原因。遇到不认识的链接格式版本，显示原始片段和说明页链接，不猜。
 
@@ -357,7 +357,7 @@
  "engine": {"version": "ref-1.2.0", "source": "swh:1:rev:…"},
  "files": [{"path": "entries.jsonl.gz", "sha256": "sha256:…", "bytes": 0, "records": 0, "schema": "entry/1", "license": "CC0-1.0"}],
  "excluded": ["curiosity", "private", "in_process"],
- "sig": {"alg": "ed25519", "key": "k1", "value": "…"}}   # 对去掉 sig 的清单的 NTJ 字节签名
+ "sig": {"alg": "ed25519", "key": "k1", "value": "…"}}   # 用链头键（§6.2）对去掉 sig 的清单的 NTJ 字节签名
 ```
 
 ### 8.3 条目（导出投影）
@@ -383,9 +383,11 @@ name: {genus: Anemorota, epithet: quadrifolia, authority: lin_hai, year: 2026, e
        common: [{lang: zh, text: 四叶风车}, {lang: en, text: Four-leaf Windmill}]}
 combinations: [{genus: Anemorota, from_seq: 20877}]
 credits: {collector: {method: manual, display: lin_hai}, describer: {display: lin_hai}, keen_eye: null}   # 普查标本写 {method: census, run: CEN-…}
-ai_assistance: [{part: behaviour, help: draft, tool: description-assistant}]
-assay_summary: {classes: [rotator], period: 24, speed: 0.0, symmetry: C4, self_repair: 0.71, discretization_range: {R: [10, 30], T: [5, 40]}, platonic: true}
+ai_assistance: [{part: behaviour, help: draft, tool: description-assistant/1.0.0}]   # tool 带模板版本【待 AI3】
+assay_summary: {classes: [rotator], period: 24, speed: 0.0003, symmetry: C4, self_repair: 0.75, discretization_range: {R: [6, 26], T: [5, 40]}, platonic: true}
+  # period 取证书的 period.steps；speed 单位是 R/TU（assay AS7，GDD §14.5 写的"格/步"按此改）；platonic 判不了时省略
 dedup: {report: "dedup:sha256:…", decision: auto_new, model: "…", nearest: [{ref: LEN-001876, distance: 0.62}]}
+plate: {renderer: plate/1, input: "sha256:…", svg: "sha256:…"}   # 可选；图版本身不导出、不进日志【待 PG8】
 provenance:
   collection: {seq: 20114, ts: 2026-11-02T13:41:07.000Z, commitment: "sha256:7d0e…", trail: "trail:sha256:7c1e…"}
   description: {seq: 20131, ts: 2026-11-02T14:05:12.000Z, commitment: "sha256:a91f…"}
@@ -398,7 +400,7 @@ license: {data: CC0-1.0, text: CC-BY-4.0, plates: CC-BY-4.0}   # 【待 D-018】
 history: [20114, 20131, 20877]
 ```
 
-`metrics_flags` 在登记时算好并冻结，供人类独有发现率扣除新手区、限定普查覆盖区和排除工具采集（看 `credits.collector.method`）【待 D-043】（法规第 19、51 条），避免事后改口径【新提议 N19】。
+`metrics_flags` 在登记时算好并冻结，供人类独有发现率扣除新手区、限定普查覆盖区和排除工具采集（看 `credits.collector.method`）【待 D-043】（法规第 19、51 条），避免事后改口径【新提议 N19】。三个标记的定义见遥测与指标口径第 5 节 V1b（`in_census_coverage` 只算采集前已跑完的普查运行）【待 TM6】。
 
 ### 8.4 异名、撤回和改名怎样表示
 
@@ -418,7 +420,7 @@ history: [20114, 20131, 20877]
 
 1. 新手考察区是富矿，区内登记偏多，用 `in_novice_zone` 扣除【待 D-043】；普查选区由团队和顾问选（D-008），覆盖不均，用 `in_census_coverage` 限定。
 2. 一切只在 lenia-q16 的格点和合法 R、T、N 下成立；"柏拉图型"是操作性标签，不等于 Davis（2024）的判据；只在浮点预览里稳定的结构（幻影）不在图鉴里【待 D-029】。
-3. `literature_reference` 没有数据；文献种附近的候选靠人工对照，查重较弱（法规第 45 条）；早期查重模型较弱，异名会滞后被发现（法规第 35 条）。
+3. `literature_reference` 没有数据；文献种附近的候选靠人工对照，查重较弱（法规第 45 条）；早期查重模型较弱，异名会滞后被发现（法规第 35 条）；查重报告里指向私密对象的项只有登记后才能核对；采集者只按同一规则点认定，相邻格点上更早的采集记录认不出（dedup v1 第 4、13 节）。
 4. 邀请制内测，人数按 PRD 的批次（GDD §19.1 的目标是 200–500 人），偏生命游戏和 Lenia 爱好者；每人每周描述配额相同（D-005）；推荐会影响玩家去哪里看（GDD §11.3）。先后按日志序号，时间戳只供显示。
 
 **研究者工具**放在代码仓库（许可【待 D-032】）：核对清单、签名和文件哈希；核对事件链和每日链头；用公开的原文重算每个已登记条目的承诺；从参数重算 hP、hK、hG；用参考实现复跑模式标本，核对轨迹链（可以抽样）；从日志重建条目投影，与 `entries.jsonl` 比对。最小的读取和核对示例：
@@ -462,40 +464,40 @@ print(sum(e["status"] == "valid" for e in entries), "valid entries")
 | `universe.kernel`、`growth`、`discretization`、`generated`；`type_specimen.window` | 规范编码的整数（kf、gf、R、T、mu_q、sigma_q、β 分数对）加 `params`（hP）；`type_specimen.kernel`、`growth_lut`、`n` | 十进制只作显示（规范 §3）；生成结果移到模式标本；只有 N×N（规范 §4） |
 | `trajectory_hashes {every, steps, chain, segments}` | `trajectory {interval, steps, chain, segments}` | 改名；定义分段列表（§3.2） |
 | `names.authority`（"lin_hai, 2026"）；`credits.*`、`ai_assistance` | `name.authority` 加 `name.year`；`credits.*.display`（来自署名表）加 `method`；`ai_assistance` 分项声明 | 显示形式不变；显示名可变为"匿名贡献者"【待 D-048】；法规第 17 条第 3 款 |
-| `assay.*`；`dedup` | 独立的证书加 `assay_summary`；`dedup` 加 `report`、`model` | 证书单独存放、签名；模型版本【待 D-034】 |
+| `assay.*`；`dedup` | 独立的证书加 `assay_summary`；`dedup` 加 `report`、`model` | 证书单独存放、签名；模型版本【待 D-034】；`speed` 从"格/步"改为 R/TU，T 变了仍可比（assay AS7） |
 | `provenance.*_at`、`*_commitment`、`exploration_path`、`birth_reproducible` | `provenance.collection`、`description` 的 `{seq, ts, commitment}`，路径在 `collection.trail`；`birth_reproducible` 推迟 | 先后按序号（法规第 10 条第 3 款）；路径不记墙钟时间（N9）；PRD 第 4 节 |
 | `citations`；`license` | 由引用记录算出；条目级 `license` 加导出包按文件标许可 | 只读投影；文献条目可以覆盖 |
-| — | 新增 `schema`、`prov`、`metrics_flags`、`combinations`、`name_changes`、`reference_specimens`、`observers`、`history`、`as_of_seq` | |
+| — | 新增 `schema`、`prov`、`metrics_flags`、`combinations`、`name_changes`、`reference_specimens`、`observers`、`history`、`as_of_seq`；可选的 `plate`【待 PG8】 | |
 
 ---
 
 ## 需要新开的决策条目
 
-依赖的提议条目已在正文就地标出：D-013、D-015–D-019、D-021、D-024、D-026、D-027、D-029–D-040、D-042–D-045、D-047、D-048。下面是本文新提的选择，建议在决策日志里开条目。拍板人：创始人（暂代后端；到岗后可提修改）。截止建议：默认"第一阶段开工前"。N1–N6、N8、N9、N12、N16 最晚在**第一条公开事件之前**（alpha 开放或首次公布普查、新手区，以先到者为准，§9 第 3 条），不是第一条登记之前；N19 随指标口径在 G-邀请 之前冻结；N13 在第一次公开导出前（G-导出）；N15 在第一阶段结束前。
+依赖的提议条目已在正文就地标出：D-013、D-015–D-019、D-021、D-024、D-026、D-027、D-029–D-040、D-042–D-045、D-047、D-048；其他 P1 文档的提议：隐私文档 PC2、PC3、PC6、PC7、PC16、PC18，交接规格 CH8、CH10、CH14、CH15、CH18，assay AS14–AS16，dedup DD10、DD11、DD16，系统架构 AR9、AR10，普查 CA4、CA6、CA7、CA9、CA11、CA15，AI 助手 AI3、AI8、AI14、AI15，遥测 TM6、TM10、TM13，悬赏 SB4、SB11、SB14，纸面生成器 PG8、PG15、PG16，内测招募 RC6（2026-10-23 的跨文档修订按它们补了字段和事件，拍板前同样不是决定）。下面是本文新提的选择，建议在决策日志里开条目。拍板人：创始人（暂代后端；到岗后可提修改）。截止建议：默认"第一阶段开工前"。N1–N6、N8、N9、N12、N16 最晚在**第一条公开事件之前**（alpha 开放或首次公布普查、新手区，以先到者为准，§9 第 3 条），不是第一条登记之前；N19 随指标口径在 G-邀请 之前冻结；N13 在第一次公开导出前（G-导出）；N15 在第一阶段结束前。
 
 | 编号 | 条目 | 本文的建议 | 相关 |
 |---|---|---|---|
 | N1 | 规范化 JSON 与通用编码 | RFC 8785 子集（§2.1）；浮点按 ECMAScript 写法写成字符串；对象数组的排序；轨迹分段列表格式。法规第 9 条写"用 D-026 的序列化"，D-026 只管状态和参数的二进制记录，这里补上承诺和事件 | D-021、D-026、法规第 9 条 |
 | N2 | 永久标识不含暂定名 | `fmt` 标签、包名、文件名都不用产品名 | D-013 |
-| N3 | 编号格式与发号 | prov 随机 6 位十六进制、重复重抽；LEN 单一写入者、无空号、无保留号段；其他前缀，地名预留（§2.2、§3.6） | D-030、D-042 |
+| N3 | 编号格式与发号 | prov 随机 6 位十六进制、重复重抽；LEN 单一写入者、无空号、无保留号段；其他前缀，含 `WR-`、`rec:`；证书和判定结果的编号不含签名（`judge:sha256:…`）；地名预留（§2.2、§3.6） | D-030、D-042、AS14、AI14、SB14 |
 | N4 | 承诺的构造 | §5 的字段；hP 代表参数；普查的署名标识；新属说明放进名称字段 | D-001、D-015、法规第 9 条 |
 | N5 | 事件日志的信封与链 | 链只覆盖信封；载荷哈希加随机数；公开、暂缓、隐去三态；每事件伪名；`actor` 的写法；还不能让人知道"发生过"的事不写日志 | 法规第 9、10 条 |
 | N6 | 每日链头的发布与签名 | 每天 00:00 UTC；Ed25519；公开仓库，有余力加时间戳服务 | 法规第 9 条 |
 | N7 | 删除账户与只追加日志 | 销毁账户盐；加密粉碎私密载荷（单人时直接删行、备份过期）；审核中的描述失效；公开视图可以隐去 | D-048、Q24 |
 | N8 | 未登记阶段的公开范围 | 不公开裸的参数哈希；私密阶段的载荷暂缓；分享的标本凭哈希可取 | 法规第 9、11 条 |
-| N9 | 探索路径不记墙钟时间 | 只记模拟步数和操作顺序；0 级下步数是否粗化随 D-039 | D-012、D-035、D-039 |
-| N10 | 测绘、观察志和观察记录的公开边界 | 个人迷雾是无序位图，0 级的去留随 D-039；全局只有匿名计数；观察志只导出计数，<5 抑制；观察记录粗化到日和分钟 | D-039 |
+| N9 | 探索路径不记墙钟时间 | 只记模拟步数和操作顺序；步数各级一律按 1,000 步取整（PC2、CH10）；起点段是单独的对象，路径里只有它的哈希 | D-012、D-035、D-039、PC2、CH10 |
+| N10 | 测绘、观察志和观察记录的公开边界 | 个人迷雾是无序位图，0 级的去留随 D-039；个人测绘面积本人可以选择公开（同观察志）；全局只有匿名计数；观察志只导出计数，<5 抑制；观察记录粗化到日和分钟 | D-039、PC3、CA7 |
 | N11 | 没有成立的描述和没通过鉴定的送检的保留期 | 搁置后失效的描述保留到账户注销；其余描述 12 个月后删内容；没通过鉴定的送检保留 12 个月或到账户删除（团队、预算与资助计划 §3.3 要本文定） | 法规第 38 条、D-027、隐私文档 |
 | N12 | 分享链接与嵌入 | `/s/1#…`；内联上限 6 KiB；deflate-raw；`?at=ev:`；嵌入只定格式（PRD 第 4 节推迟），单线程 WASM；未知版本的降级 | D-013、D-037 |
 | N13 | 每周导出包 | §8.1 的文件、截点和保留；JSONL 为准、Parquet 推迟；含待描述库的普查标本，不含图版和内部文献名单 | D-018、D-035、D-047 |
 | N14 | 字段级许可 | 人写的自由文字和团队写的说明文字 CC BY 4.0，其余 CC0 | D-018、Q15、Q16 |
 | N15 | DOI 快照与第一个 DOI | 组成见 §8.5；第一阶段不做（与 PRD 第 4 节一致）；第一个 DOI 用第一阶段最后一期导出，在统计时点前存档；先发样例导出 | D-018、D-048、D-047、D-011 |
 | N16 | 版本与兼容规则 | §9；`status` 拆字段；格式在第一条公开事件前冻结 | — |
-| N17 | 评审逐票公开 | 评审人按本人同意署名 | D-038 |
+| N17 | 评审逐票公开 | 评审人按本人同意署名；评审和裁决的参与人在载荷里只写署名标识，名字经署名表显示，删除账户时改为"匿名贡献者" | D-038、PC18 |
 | N18 | 文献条目的状态转换 | 导入先在私密暂存区，G-文献可见时才写事件、分配 LEN；升级为导入时沿用 LEN；literature 与 literature_unreproduced 随证书更正互转 | D-040、D-042、D-027 |
 | N19 | 指标标记在登记时冻结 | `in_novice_zone`、`in_census_coverage`、`census_collected_before` | D-043、D-011 |
-| N20 | 野外笔记页的存储 | 客户端生成；只在保存或分享时上传；不导出 | D-015 |
-| N21 | 查重报告的时点 | 鉴定后、提交描述时、登记前各一次 | dedup v1 |
+| N20 | 野外笔记页的存储 | 客户端生成；只在保存时上传，只传日期、服务器已有记录的引用和批注；分享即导出文件，第一阶段不设托管链接；不导出 | D-015、D-039、PG15、PG16 |
+| N21 | 查重报告的时点 | 鉴定后、提交描述时、登记前各一次；异议、抽检和重查按需另出（`purpose`） | dedup v1、DD16 |
 
 ## 变更记录
 
@@ -503,3 +505,4 @@ print(sum(e["status"] == "valid" for e in entries), "valid entries")
 |---|---|---|
 | 2026-10-21 | v0 底稿 | 首次起草：实体与字段、三张状态机、承诺构造、事件日志与链头、链接、每周导出与 DOI 快照、版本规则、GDD §14.5 对照；新提议 N1–N21 |
 | 2026-10-21 | v0 底稿（审查后修订） | 按对抗式审查修订，节号不变：第一个 DOI 改到第一阶段结束后、嵌入代码只定格式（与 PRD 第 4 节一致）；格式冻结点改为第一条公开事件之前；分享的未描述标本凭哈希可取；文献导入到 G-文献可见才进日志；补文献对照、按第 38 条恢复、`cure.expired` 等状态转换，证书更正改走撤回流程；补没通过鉴定的送检的保留期、地名的预留；浮点写法和对象数组排序写死；原则 4 改为只说信封；好奇心类型、引用类型按 PRD；单人降级表去掉功能范围；补提议标记和 [待法务确认]；链接 PRD 计划路径 |
+| 2026-10-23 | v0 底稿（跨文档一致性修订） | 跨文档一致性修订：按交接规格补 `precheck_notes`、`precheck_by`、`trail/1`（`seed` 加 import、`step_unit` 各级取整、`from` 改为起点段对象的哈希）和观察记录 `check`；按 assay 补证书字段（`verdict`、`assay_frame`、`locality_recheck`、`died_at_tu`、运行的 `status` 等）、编号不含签名、失败和更正的原因码，示例的自愈指数、存活范围改为能测出的值，`speed` 单位改为 R/TU；按 dedup 补查重报告字段（DD16）和 `range_confirmed`，灰色标本留在待描述、提交描述时从暂停开评审，加对自动判同的复核申请；按系统架构补 `keys.json` 字段和 `key.*` 事件、评审证据改为帧序列对象；按普查补 `prng_seed` 的规则和数值、`budget` 单位、新手区 `backup`/`replaces`、全局测绘 `proto`/`runs`/`check`，个人测绘面积可选公开；按 AI 助手补 `WR-`、`rec:`、周报对象和 `weekly_report.published`、`tool` 带版本；按悬赏补字段、只判 LEN、自动判定、`judge:` 编号、两个署名角色、`bounty.opened`/`amended`、异议可针对判定结果；按纸面生成器补 `plate`、收窄野外笔记；按隐私文档补条款接受记录、评审和裁决署名经署名表、原则 4 的个人数据说明；按遥测补好奇心事件 `value`；按内测招募补邀请码标签；嵌入的降级写为待创始人定 |
