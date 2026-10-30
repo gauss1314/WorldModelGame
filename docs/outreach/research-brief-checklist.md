@@ -38,7 +38,7 @@
    - 命名权归属（§22(3)，D-015）和学名形式（§22(5)，D-017）拍板之前，"Priority (proposed)"、"Names (proposed)" 和 "none is final" 原样保留。D-015 能在 W1 第 1 天拍板最好，否则在 W2 命名法规 v0 动笔之前；D-017 截止 W3。简介在 W1 发出，所以发出时至少学名形式仍是 "proposed"。
    - 数据许可（§22(6)，D-018）：W1 第 1 天定方向，最终许可到首次公开导出前才定案。简介始终写 "proposed CC0"。
    - 参考实现的代码许可（D-032）定了之后，可以在 "An open-source reference implementation" 后补上许可名；没定之前不写。
-   - **柏拉图型的定义**：简介写的是 "whether it survives across the R and T values tested"；[assay v1](../tech/assay-v1.md) §3.7 只看加细的 R↑、T↑，粗化只用来写能存活的范围，有一项测不了时不给标签（【待 AS11】）。发送前由创始人定改简介的这一句还是改 assay v1（assay v1 §12）；访谈计划 F1 的问法和本清单末尾第 6 条的说明随之一起改。
+   - **柏拉图型的定义**【待决策日志 E.3：研究简介里"柏拉图型"的说法】：简介写的是 "whether it survives across the R and T values tested"；[assay v1](../tech/assay-v1.md) §3.7 只看加细的 R↑、T↑，粗化只用来写能存活的范围，有一项测不了时不给标签（【待 AS11】）。W1 第 3 天发送前由创始人定改简介的这一句还是改 assay v1；访谈计划 F1 的问法和本清单末尾第 6 条的说明随之一起改。
 
 5. **Chan**
    - **Chan 不单独收本简介。** Chan 只收许可请求函，信里附本简介的链接；也不另发访谈邀请（许可请求函第 3 节；第 0 阶段计划 §3.1）。所以链接版就是 Chan 会读到的版本。
@@ -85,7 +85,7 @@
 6. Is it acceptable to you to treat one specific integer discretisation as "the" universe? Would a Platonic / non-Platonic label be useful, or misleading?
 7. Would a human-curated catalog be useful as a benchmark for automated discovery? What task and measure would make it worth using?
 
-第 6 条提问时说明：简介里的 Platonic / non-Platonic 标签是操作性的（在测试过的 R、T 下能否存活），可能和 Davis 的标准不同。第 7 条提问时说明 Reinke 等（2020）的结果（见第 2 条），不要预设答案。
+第 6 条提问时说明：简介里的 Platonic / non-Platonic 标签是操作性的（在测试过的 R、T 下能否存活【待决策日志 E.3：研究简介里"柏拉图型"的说法】），可能和 Davis 的标准不同。第 7 条提问时说明 Reinke 等（2020）的结果（见第 2 条），不要预设答案。
 
 ---
 
@@ -95,3 +95,4 @@
 |---|---|---|
 | 2026-10-20 | v0.2 | 按对抗式审查从简介文首移到这里（见文首） |
 | 2026-10-23 | v0.2（跨文档一致性修订） | 第 4 条加柏拉图型定义与 assay v1 的出入，发送前由创始人定；第 10 条加"不借外联招募内测玩家"（RC3） |
+| 2026-10-23 | v0.2（终审清理） | 终审清理：第 4 条和末尾第 6 条的柏拉图型说法加决策日志 E.3 标记，写明 W1 第 3 天发送前定 |
