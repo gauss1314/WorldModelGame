@@ -4,9 +4,9 @@
 >
 > 依据：[GDD v0.2](../naturalis-gdd.md) §8.2–§8.7、§10.2、§11.2、§14.1、§14.4、§14.5、§14.9、§19.1；[决策日志](../decision-log.md)；[命名法规 v0](../naming-code-v0.md)（下称"法规"）；[宇宙规范草案](../spec/lenia-q16-draft.md)（下称"规范"）§3、§4、§8；[法律备忘](../legal-memo.md) §3、§7；[第一阶段 PRD](../product/phase1-prd.md)（同为 ★ 草稿，功能范围以它为准）。截止和拍板人只以决策日志为准。
 >
-> **标记**：【待 D-0xx】＝依赖提议中的条目，拍板前不是决定；【新提议 Nn】＝本文新提的选择，日志里还没有条目，汇总在文末"需要新开的决策条目"；暂定＝猜测的数字；[verify]＝待核实的事实；[待法务确认]＝法律问题，本文不下结论。只有 A 组（D-001–D-012、D-041）已采纳。
+> **标记**：【待 D-0xx】＝依赖仍未定的条目（D-040；D-028 的 R、T 范围）；【新提议 Nn】＝本文新提的选择，2026-10-30 已采纳为当前方案（决策日志 E.1），汇总在文末"需要新开的决策条目"；暂定＝猜测的数字；[verify]＝待核实的事实；[待法务确认]＝法律问题，本文不下结论。A 组（D-001–D-012、D-041）之外，2026-10-30 创始人又采纳了 D-013–D-039、D-042–D-061，只有 D-040 仍是提议。
 >
-> **这是底稿**：README 把本文列为第一阶段开工前必须完成的三份文档之一。第 0 阶段还没执行。访谈计划 §7.3(4) 要求影响数据模型的字段请求在本文定稿前定；本稿先于访谈起草，做不到，所以 W4 第 3 天冻结的高优先级字段请求要在本文**定稿前**逐条处理（已覆盖、加字段或"再问"）。2026-10-23 已按 assay v1、dedup v1、采集交接规格等 P1 规格修订（见变更记录）。整个优先权模型以 D-015 选 A（第一个有效描述者）为前提【待 D-015】；选 B 时 §4.2、§5 重写。
+> **这是底稿**：README 把本文列为第一阶段开工前必须完成的三份文档之一。第 0 阶段还没执行。访谈计划 §7.3(4) 要求影响数据模型的字段请求在本文定稿前定；本稿先于访谈起草，做不到，所以 W4 第 3 天冻结的高优先级字段请求要在本文**定稿前**逐条处理（已覆盖、加字段或"再问"）。2026-10-23 已按 assay v1、dedup v1、采集交接规格等 P1 规格修订（见变更记录）。整个优先权模型按 D-015 的 A（第一个有效描述者）写。
 
 ---
 
@@ -21,7 +21,7 @@
 1. **日志是事实的来源。** 条目、物种页、周报和导出都是由事件日志和内容寻址对象算出来的投影（GDD §14.1）。投影可以重算，日志不改。
 2. **发布了就不改。** 事件、承诺、证书、查重报告、每日链头和导出包一经发布永不修改。更正一律追加新事件或新对象（法规第 5 条第 6 款）。
 3. **登记之前默认私密。** 没有登记的东西只公开加了随机数的承诺哈希（法规第 9 条）。例外只有三种：普查标本进入待描述库时公开（D-008）；玩家主动分享的标本，凭链接可见（§7）；评审确认为分布区标本、采集者同意公开的（§3.3 参考标本，dedup v1 第 7.5 节）【待 DD10】。
-4. **信封里没有个人数据。** 链只覆盖信封（§6.1），信封里只有伪名和哈希。载荷里直接写出的名字只有登记所用名称字段里的命名者署名（法规第 27、31 条），需要时可以在公开视图里隐去（§6.1）。评审和裁决的参与人在载荷里只写署名标识，按本人同意经署名表显示（法规第 50、54 条）【待 PC18】；其他显示名同样只在链外的署名表里，删除账户时可以处理【待 D-048】。登记后公开的探索路径、观察时间和描述文字经署名表与显示名相连，也可能算个人数据 [待法务确认，法律备忘 Q24(d)]。
+4. **信封里没有个人数据。** 链只覆盖信封（§6.1），信封里只有伪名和哈希。载荷里直接写出的名字只有登记所用名称字段里的命名者署名（法规第 27、31 条），需要时可以在公开视图里隐去（§6.1）。评审和裁决的参与人在载荷里只写署名标识，按本人同意经署名表显示（法规第 50、54 条）【待 PC18】；其他显示名同样只在链外的署名表里，删除账户时可以处理（D-048）。登记后公开的探索路径、观察时间和描述文字经署名表与显示名相连，也可能算个人数据 [待法务确认，法律备忘 Q24(d)]。
 5. **数值精确。** 状态和参数只用规范 §8 的二进制记录；被哈希的对象里不出现 JSON 浮点数。
 6. **永久标识不含暂定名。** 编号、格式标签和文件名都不用《博物志》或 Naturalis（D-013）【新提议 N2】。
 
@@ -38,10 +38,10 @@
 
 ### 2.1 编码
 
-**规范化 JSON（NTJ）**【新提议 N1】。所有被哈希或签名的对象（承诺、事件信封和载荷、证书、查重报告、探索路径、轨迹分段列表、每日链头、导出清单）先按 NTJ 序列化成字节，再取 SHA-256（【待 D-021】）。NTJ 是 RFC 8785（JCS）加下面的限制：
+**规范化 JSON（NTJ）**【新提议 N1】。所有被哈希或签名的对象（承诺、事件信封和载荷、证书、查重报告、探索路径、轨迹分段列表、每日链头、导出清单）先按 NTJ 序列化成字节，再取 SHA-256（D-021）。NTJ 是 RFC 8785（JCS）加下面的限制：
 
 - 键只用 ASCII，按字典序；没有空白；UTF-8。文字在入库时做 Unicode NFC 规范化、换行统一为 LF，存储和公开的就是规范化后的文字，核对时不再变换。
-- 数字只用整数，绝对值 ≤ 2^53 − 1，更大的写成十进制字符串。浮点量（描述性测量，分层【待 D-034】）写成十进制字符串，写法同 ECMAScript 的 `Number.prototype.toString`（也就是 JCS 写数字的方法），如 `"0.71"`、`"0.00001"`；Python 的 `repr` 在指数形式上不同（`1e-05`），要用专门的函数 [verify：用测试向量核对]。不允许 NaN 和无穷。
+- 数字只用整数，绝对值 ≤ 2^53 − 1，更大的写成十进制字符串。浮点量（描述性测量，分层，D-034）写成十进制字符串，写法同 ECMAScript 的 `Number.prototype.toString`（也就是 JCS 写数字的方法），如 `"0.71"`、`"0.00001"`；Python 的 `repr` 在指数形式上不同（`1e-05`），要用专门的函数 [verify：用测试向量核对]。不允许 NaN 和无穷。
 - 可选字段缺省时省略，不写 null。表示集合的数组按升序排列：字符串按 UTF-8 字节，对象按各自的 NTJ 字节；表示序列的数组保持原顺序。时刻写成 `YYYY-MM-DDTHH:MM:SS.sssZ`（UTC，固定 3 位毫秒），日期写成 `YYYY-MM-DD`。
 - 哈希写成 `sha256:` 加 64 个小写十六进制字符（规范 §8.1）；随机数 128 位（暂定，法规第 9 条），写成 32 个小写十六进制字符；其他二进制写成不带补位的 base64url。
 - 每个顶层对象都带 `fmt`，形如"名称/主版本"（如 `collection-commitment/1`）。名称不同就是不同的哈希域，一类对象的哈希不会和另一类相同。事件载荷不带 `fmt`，它的类型和版本由信封的 `type`、`tv` 给出（§6.1）。
@@ -52,18 +52,18 @@
 
 | 编号 | 格式 | 分配 |
 |---|---|---|
-| 永久编号 | `LEN-` 加 6 位十进制，从 `LEN-000001` 起；用完 6 位后加位，如 `LEN-1000000`（法规第 3 条，暂定）。按数值排序，不按字符串 | 登记生效或建立文献条目时，由日志的单一写入者在写该事件的同一事务里取下一个号：不并发发号，没有空号，不设保留号段，号码不含任何含义【新提议 N3】。异名和撤回条目的号永不复用（GDD §8.5(6)）。`literature_reference` 也占号【待 D-042(a)】 |
+| 永久编号 | `LEN-` 加 6 位十进制，从 `LEN-000001` 起；用完 6 位后加位，如 `LEN-1000000`（法规第 3 条，暂定）。按数值排序，不按字符串 | 登记生效或建立文献条目时，由日志的单一写入者在写该事件的同一事务里取下一个号：不并发发号，没有空号，不设保留号段，号码不含任何含义【新提议 N3】。异名和撤回条目的号永不复用（GDD §8.5(6)）。`literature_reference` 也占号（D-042(a)） |
 | 临时编号 | `prov:YYYY-MM-XXXXXX`：采集时服务器的 UTC 年月，加 6 位大写十六进制随机数（GDD §8.5(7)） | 随机抽取，与已发出的全部临时编号比对，重复就重抽；某月发出超过 2^22 个时，当月余下的改用 8 位（暂定）。解析器接受 6–12 位。已发出的号永不复用，包括被玩家删掉的标本【新提议 N3】 |
 | 事件序号 | `ev:` 加十进制序号，从 1 起 | 写日志时顺序分配（法规第 10 条第 3 款）。周报和史官引用事实时用它（GDD §8.8、§10.3），只能引用载荷已公开的事件 |
 | 其他 | 普查 `CEN-0001`；新手区 `NZ-001`；悬赏 `BTY-0001`；分类评审 `RVW-2026-0001`、异议 `OBJ-…`、裁决 `RUL-…`、申诉 `APL-…`、分类修订 `REV-…`（按受理时的 UTC 年份编号）；观察记录 `obs:`、野外笔记页 `nb:`、推荐 `rec:`（各加 12 位小写十六进制随机数；`rec:` 私密，只在推荐缓存里【待 AI8】）；周报 `WR-2026-W46`（ISO 周）【待 AI14】；证书、悬赏判定结果、查重报告、探索路径用内容哈希：`cert:sha256:…`、`judge:sha256:…`【待 SB14】、`dedup:sha256:…`、`trail:sha256:…`。证书和判定结果的编号取去掉 `sig` 之后的哈希，密钥轮换后重签编号不变，同一编号可以有几份签名【待 AS14】【新提议 N3】 | 位数用完时加位，规则同 LEN |
 | 保留 | `EXP-`（实验）、`CON-`（构造），6 位，第二阶段启用（GDD §9.1、§9.2；法规第 2 条第 3 款）。其他宇宙家族和变体规范的前缀，开放登记前由法规修订写明（法规第 2 条第 2 款）。地名的编号随地名功能另定（法规第 28 条） | — |
-| 测试沙盒 | 团队的测试登记用 `TST-`，放在独立的库里，不占 LEN 编号和学名，不进日志的公开视图，不进导出（法规第 49 条第 2 款）。alpha 期的登记就在 LEN 里，没有单独的命名空间【待 D-030】 | — |
+| 测试沙盒 | 团队的测试登记用 `TST-`，放在独立的库里，不占 LEN 编号和学名，不进日志的公开视图，不进导出（法规第 49 条第 2 款）。alpha 期的登记就在 LEN 里，没有单独的命名空间（D-030） | — |
 
 ### 2.3 字段标记与许可
 
 | 标记 | 含义 |
 |---|---|
-| 无标记 | 公开数据，CC0 1.0【待 D-018；选 B 时为 CC BY 4.0】 |
+| 无标记 | 公开数据，CC0 1.0（D-018） |
 | ‡ | 人写的自由文字（玩家、评审和研究者写的），CC BY 4.0，署名见署名表（§3.1）【新提议 N14，细化 D-018】。团队写的说明文字（README 等）同样用 CC BY 4.0【新提议 N14】 |
 | 私 | 私密：不进日志的公开视图，不导出 |
 | 延 | 暂缓：登记时（普查标本在进入待描述库时）才公开；此前只公开承诺哈希 |
@@ -77,8 +77,8 @@
 
 | 实体 | 字段（标记见 §2.3） | 公开 | 保留 |
 |---|---|---|---|
-| 账户 | `account_id` u64 私 · `email` 私 · `auth` 私 · `created_at` 私 · `adult_declared` 私（自我声明加邀请制）与 `region` 国家码 私【待 D-031】· `invite` 私：邀请码和标签"批次-渠道类型-语言"（如 `B1-C4-en`，只用于内部切片）【待 RC6】· `player_id` · `display_name`（署名表用）· `authority_form` 拉丁字母署名形式（法规第 27 条第 2 款）· `salt` 32 字节 私 · `roles` team / panel / researcher · 配额、处罚 私 | 玩家 ID、显示名；角色中的评审组成员和研究者按本人同意公开【待 D-040 第 7 条】 | 账户存续；删除见 §6.4 |
-| 署名表 | `object`（LEN、prov、RUL-… 等）· `role` collector / describer / keen_eye / objector / reviewer / ruling_participant【待 PC18】/ census_selector / bounty_publisher（第二阶段）/ bounty_codesigner / nominator【待 SB14】/ solver · `display` 显示名或"匿名贡献者" | 公开；**不进链**，每周重新生成 | 删除账户后，以后的导出改为"匿名贡献者"【待 D-048】 |
+| 账户 | `account_id` u64 私 · `email` 私 · `auth` 私 · `created_at` 私 · `adult_declared` 私（自我声明加邀请制）与 `region` 国家码 私（D-031）· `invite` 私：邀请码和标签"批次-渠道类型-语言"（如 `B1-C4-en`，只用于内部切片）【待 RC6】· `player_id` · `display_name`（署名表用）· `authority_form` 拉丁字母署名形式（法规第 27 条第 2 款）· `salt` 32 字节 私 · `roles` team / panel / researcher · 配额、处罚 私 | 玩家 ID、显示名；角色中的评审组成员和研究者按本人同意公开【待 D-040 第 7 条】 | 账户存续；删除见 §6.4 |
+| 署名表 | `object`（LEN、prov、RUL-… 等）· `role` collector / describer / keen_eye / objector / reviewer / ruling_participant【待 PC18】/ census_selector / bounty_publisher（第二阶段）/ bounty_codesigner / nominator【待 SB14】/ solver · `display` 显示名或"匿名贡献者" | 公开；**不进链**，每周重新生成 | 删除账户后，以后的导出改为"匿名贡献者"（D-048） |
 | 署名标识 | `sha256:` 串，构造见 §5 | 公开 | 永久；账户盐销毁后不能再关联到人 |
 | 同意记录 | `account_id` 私 · `level` 0 / 1 / 2 · `text_version` 同意文本的哈希 · `lang` · `set_at` · `source` 注册或设置页 · `ethics_ref`（只在 2 级；审批或豁免之前不提供 2 级，GDD §19.1、D-036） | 全部私密，只追加 | 账户存续；删除后 3 年，只留这几个字段（暂定，隐私文档 PC6）[待法务确认] |
 | 条款接受 | `account_id` 私 · `doc` terms / conduct / tester_notes（用户协议、行为准则、测试者须知，法规第 52 条）· `text_version` 文本哈希 · `lang` · `accepted_at`【待 PC7】 | 全部私密，只追加 | 同同意记录 |
@@ -87,22 +87,22 @@
 
 | 实体 | 字段 | 公开 | 保留 |
 |---|---|---|---|
-| 采集记录 | `prov` · `spec` · `params` hP（参数记录本身 延）· `n` · `state` S（状态记录 延）· `trail` · `method` manual / tool / census（法规第 19 条）· `link_source`（经分享链接得到时，法规第 11 条第 3 款）· `precheck` ok / phantom【待 D-029】· `precheck_notes` split / expanding / morphed / unstable（只是提示）· `precheck_by` server / client（服务器复跑为准，client 只用于客户端报的幻影）【待 CH8】· `commitment` · `nonce` 延 · `seq`、`ts` · `near_literature` 私（法规第 45 条）· `pool`（在待描述库） | 承诺哈希立即公开；其余 延 | 公开了的：永久。玩家采集箱里没公开的：账户存续，玩家可删，日志里的承诺哈希保留。鉴定没通过的：状态记录和证书保留 12 个月（暂定）或到账户删除，以先到者为准，供 D-027 重新鉴定时使用【新提议 N11】 |
+| 采集记录 | `prov` · `spec` · `params` hP（参数记录本身 延）· `n` · `state` S（状态记录 延）· `trail` · `method` manual / tool / census（法规第 19 条）· `link_source`（经分享链接得到时，法规第 11 条第 3 款）· `precheck` ok / phantom（D-029）· `precheck_notes` split / expanding / morphed / unstable（只是提示）· `precheck_by` server / client（服务器复跑为准，client 只用于客户端报的幻影）【待 CH8】· `commitment` · `nonce` 延 · `seq`、`ts` · `near_literature` 私（法规第 45 条）· `pool`（在待描述库） | 承诺哈希立即公开；其余 延 | 公开了的：永久。玩家采集箱里没公开的：账户存续，玩家可删，日志里的承诺哈希保留。鉴定没通过的：状态记录和证书保留 12 个月（暂定）或到账户删除，以先到者为准，供 D-027 重新鉴定时使用【新提议 N11】 |
 | 探索路径 | `fmt` trail/1 · `seed`：播种方式 `kind`（soup 汤、brush 画笔、catalog 图鉴拖入、link 链接、import 导入【待 CH18】；gen 生成器保留，PRD 第 4 节推迟）与初始状态哈希 · `steps`：按**模拟步数**记的参数改动和操作，**不记墙钟时间**【新提议 N9】· `step_unit`：步数一律按 1,000 步取整，各级同意相同（步数会透露停留多久）【待 D-039、PC2】· `from`：拖入或"从这里出发"时，起点段对象 `origin-segment/1`（起点 LEN、状态和参数哈希、之后的操作只记顺序）的哈希 · 其余（`start`、`capture`）见采集交接规格第 9 节【待 CH10】 | 延 | 同采集记录。起点段对象单独存放：只为登记成新种的保留，其余可以删掉，承诺照样能核对（交接规格第 13 节）【待 D-039、CH15】 |
-| 鉴定证书 | `fmt` assay-certificate/1 · `spec`、`params`、`n`、`state`、`kernel` hK、`growth_lut` hG · `engine` 版本与构建哈希 · `suite` assay 版本 · `verdict` pass / fail · `dims_tested` 测了哪些离散化维度（D-003 待议部分）· `survival` {time_units, steps, survived, died_at_tu}【待 D-033】· `locality`、`locality_recheck` · `classes` · `trajectory` {interval, steps, chain, segments} · `measures`（十进制串，分层【待 D-034】；没测的项写 `"untested"`，PRD F16；不适用的省略）· `discretization_runs` [{R, T, n, steps, status, survived, locality, classes, chain, segments}] · `platonic`（判不了时省略）· `prng_seed`（自愈测试；没做时省略）· `assay_frame` 鉴定帧（基准运行最后一步的状态哈希，查重从它开始）· `birth_reproducible`（PRD 第 4 节推迟，第一阶段省略）· `issued_at` · `sig`。补充字段的定义见 assay v1 §6.1【待 AS14】 | 延（随所鉴定的标本） | 永久。主体永不修改；套件 bug 和补测都签发新证书，写 `certificate.corrected`（原因码 `bug_fix` / `supplement`），前者旧证书标"已更正"，后者物种页写"已补测"【待 D-027、AS16】。观察挑战用的第 257–511 步状态哈希在鉴定时私存，不进证书（交接规格第 12 节） |
+| 鉴定证书 | `fmt` assay-certificate/1 · `spec`、`params`、`n`、`state`、`kernel` hK、`growth_lut` hG · `engine` 版本与构建哈希 · `suite` assay 版本 · `verdict` pass / fail · `dims_tested` 测了哪些离散化维度（D-003 待议部分）· `survival` {time_units, steps, survived, died_at_tu}（D-033）· `locality`、`locality_recheck` · `classes` · `trajectory` {interval, steps, chain, segments} · `measures`（十进制串，分层（D-034）；没测的项写 `"untested"`，PRD F16；不适用的省略）· `discretization_runs` [{R, T, n, steps, status, survived, locality, classes, chain, segments}] · `platonic`（判不了时省略）· `prng_seed`（自愈测试；没做时省略）· `assay_frame` 鉴定帧（基准运行最后一步的状态哈希，查重从它开始）· `birth_reproducible`（PRD 第 4 节推迟，第一阶段省略）· `issued_at` · `sig`。补充字段的定义见 assay v1 §6.1【待 AS14】 | 延（随所鉴定的标本） | 永久。主体永不修改；套件 bug 和补测都签发新证书，写 `certificate.corrected`（原因码 `bug_fix` / `supplement`），前者旧证书标"已更正"，后者物种页写"已补测"【待 D-027、AS16】。观察挑战用的第 257–511 步状态哈希在鉴定时私存，不进证书（交接规格第 12 节） |
 | 轨迹分段列表 | `{"fmt": "trajectory-segments/1", "interval": 256, "points": [[k, S_k], …]}`，k 从 0 起到最后一步 L，与规范 §8.5 的链点一一对应；证书的 `segments` 是它的哈希（规范 §8.5 留给本文）【新提议 N1】 | 延 | 永久 |
-| 查重报告 | `subject` prov、LEN 或一对条目 · `purpose` assay / description / registration / objection / audit / recheck · `as_of_seq` · `fingerprint` · `frames`（8 个规范帧状态哈希拼接后的哈希）· `model` {name, version, code}；v1 没有学到的权重，省略 `weights`【待 D-034】· `nearest` [{ref, distance, mirror, rotation, phase}] · `continuity` [{to, passed, chain, direction, result, moves, break_at, spent}] · `decision` auto_new / auto_same:LEN / grey（报告出具时还没有评审编号，开评审时由 RVW 引用报告）· `pool_match`（同种的待描述库标本）· `reason` literature_staged / contest · `thresholds_version`。定义见 dedup v1【待 DD16】 | 延；`nearest` 和 `auto_same` 里指向私密对象（审核中的描述、文献暂存）的项，公开视图写 "private" | 永久。查重是时点报告：鉴定后、提交描述时、登记前各跑一次（法规第 10 条第 1 款）【新提议 N21】；异议、抽检和升版后的重查按需另出（`purpose`）。按需的连续性检验是单独的内容寻址对象，由 RVW、异议的 `evidence` 引用 |
+| 查重报告 | `subject` prov、LEN 或一对条目 · `purpose` assay / description / registration / objection / audit / recheck · `as_of_seq` · `fingerprint` · `frames`（8 个规范帧状态哈希拼接后的哈希）· `model` {name, version, code}；v1 没有学到的权重，省略 `weights`（D-034）· `nearest` [{ref, distance, mirror, rotation, phase}] · `continuity` [{to, passed, chain, direction, result, moves, break_at, spent}] · `decision` auto_new / auto_same:LEN / grey（报告出具时还没有评审编号，开评审时由 RVW 引用报告）· `pool_match`（同种的待描述库标本）· `reason` literature_staged / contest · `thresholds_version`。定义见 dedup v1【待 DD16】 | 延；`nearest` 和 `auto_same` 里指向私密对象（审核中的描述、文献暂存）的项，公开视图写 "private" | 永久。查重是时点报告：鉴定后、提交描述时、登记前各跑一次（法规第 10 条第 1 款）【新提议 N21】；异议、抽检和升版后的重查按需另出（`purpose`）。按需的连续性检验是单独的内容寻址对象，由 RVW、异议的 `evidence` 引用 |
 
 ### 3.3 描述、名称与条目
 
 | 实体 | 字段 | 公开 | 保留 |
 |---|---|---|---|
 | 描述 | `desc`（第一个描述提交承诺的哈希）· `prov`、`state` · `diagnosis` ‡ · `behaviour` ‡ · `observations` · `ai` 分项声明 [{part, help, tool}]（法规第 17 条第 3 款），`tool` 写"名称/版本"，如 `description-assistant/1.0.0`【待 AI3】· `name` 名称子承诺 · `describer` 署名标识 · `nonce` · `commitments` 改名后的承诺链 · `status`（§4.2）· `quota_week` 私 · `near_literature` 私 · `eponym_pending` 私 | 延：登记时公开全文和承诺原文（法规第 31 条第 3 款）；没有成立的只公开承诺哈希（法规第 9 条） | 登记了的：永久。"搁置"后失效的：账户存续（法规第 38 条可能按原提交时间恢复）。其他没有成立的：内容 12 个月后删除（暂定），哈希留在日志【新提议 N11】 |
-| 名称字段 | 见 §5：`genus`、`epithet`、`new_genus.note` ‡、`common`、`etymology` ‡、`authority`、`nonce`【待 D-017】 | 延：只公开登记所用的一版；被退回的只公开子承诺哈希（法规第 30 条） | 同描述 |
+| 名称字段 | 见 §5：`genus`、`epithet`、`new_genus.note` ‡、`common`、`etymology` ‡、`authority`、`nonce`（D-017） | 延：只公开登记所用的一版；被退回的只公开子承诺哈希（法规第 30 条） | 同描述 |
 | 条目 | 见 §8.3 | 登记时公开。`under_review` 只存在于私密视图：名字暂时保留（法规第 4 条），内容在登记前不公开（第 9 条、第 10 条第 1 款） | 永久 |
 | 模式标本 | `spec`、`params`（参数记录及解码后的整数）、`n`、`state`、`kernel`、`growth_lut`、`trajectory`、`cert`、`trail` | 公开 | 永久，登记后不可修改（GDD §8.5(2)） |
 | 参考标本 | `ref` 状态哈希 · `entry` LEN · `origin` literature_rediscovery / former_type:LEN（法规第 36 条第 2 款）/ range_confirmed（分布区标本：评审判同、规则点不同，采集者同意公开快照和署名；确认它的 RVW 随之公开，dedup v1 第 7.5 节）【待 DD10、DD16】· `spec`、`params`、`n`、`state`、`cert` · 采集者见署名表 | 公开；挂在 `literature_reference` 下的不写与原文参数的差别（法规第 44 条第 3 款） | 永久 |
-| 文献记录 | `entry` LEN · `status` · `original_binomial`、`original_author`、`original_classification`（始终可见【待 D-040 第 3 条】）· `year`【待 D-042(c)】· `source` DOI 或 arXiv 编号 · `params` 文（只在 literature、literature_unreproduced）· `unreproduced_reason` · `license` · `permission_ref` 私 · `preview_done` 私 | `literature_reference` 只有学名、原作者署名和原文链接（法规第 42 条）。有许可时，导入先在私密暂存区完成，到 PRD §2.3 的 G-文献可见（预览满 3 周，暂定）才写 `literature.imported` 事件、分配 LEN、进导出【待 D-040 第 2 条】【新提议 N18】 | 永久 |
+| 文献记录 | `entry` LEN · `status` · `original_binomial`、`original_author`、`original_classification`（始终可见【待 D-040 第 3 条】）· `year`（D-042(c)）· `source` DOI 或 arXiv 编号 · `params` 文（只在 literature、literature_unreproduced）· `unreproduced_reason` · `license` · `permission_ref` 私 · `preview_done` 私 | `literature_reference` 只有学名、原作者署名和原文链接（法规第 42 条）。有许可时，导入先在私密暂存区完成，到 PRD §2.3 的 G-文献可见（预览满 3 周，暂定）才写 `literature.imported` 事件、分配 LEN、进导出【待 D-040 第 2 条】【新提议 N18】 | 永久 |
 
 ### 3.4 评审、异议与裁决
 
@@ -120,17 +120,17 @@
 |---|---|---|---|
 | 观察记录 | `obs:…` · `target` prov 或 LEN · `observer` 署名标识 · `at`（服务器凭据的签发时间）· `mode` exact / float · `check` challenge / none（exact 用挑战校验）【待 CH14】· `duration_s`（法规第 16 条） | 延：记录存在浏览器，随描述上传（CH14）；随描述登记公开，时间粗化到日，时长取整到分钟【新提议 N10】 | 同描述 |
 | 观察志条目 | `account_id` 私 · `entry` LEN · `first_seen` 日期 · `via` collected / exact | 私密；个人档案只显示计数，玩家可选公开；导出只给每个条目的观察人数，不足 5 写 "<5"【新提议 N10】 | 账户存续 |
-| 慧眼标记 | `prov`（待描述库）· `flagger` 署名标识 · `seq` | 记功时公开（署名表）；0 级也保留，只用于记功【待 D-039】 | 记了功的永久；其余随账户 |
-| 野外笔记页 | `nb:…` · `account_id` 私 · `date` · `items`：服务器已有记录的引用（临时编号、LEN、证书）、观察志新增、批注（平台不公开，不标 ‡；玩家导出分享时的许可【待 PC16】）。路线、起点种、"有趣"标记和观察摘要任何级别都只留在浏览器，不上传【待 PG15、D-039】· `hidden_params` 导出中恒为 true，第一阶段没有关掉的开关（D-015 建议）【待 PG16】 | 私密；客户端生成，只在玩家按"保存"时上传；"分享"就是导出文件，第一阶段不设托管的分享链接；不进日志，不进导出【新提议 N20】【待 PG16】 | 账户存续，玩家可删 |
-| 测绘 | 个人：`account_id` 私 · `slice` · 去过哪些格子的无序位图（不含时间和顺序）· 测绘面积和面积第一次 > 0 的日期【待 TM13】。全局：`slice` · `cell` · `terrain` dead / chaotic / life_band · `proto`（如 `terrain/1.0.0`）· `runs`（4 个汤的结果字母）· `check`（4 个末态哈希拼接后的哈希）· `sources` {census, registered, reports}【待 CA4、CA6】 | 个人私密；测绘面积默认只给本人看，本人可以选择公开（同观察志）【待 CA7】。全局公开，只含匿名计数，`reports` 不足 5 批不公开；服务器只在地形区里算地形（普查文档第 2.5 节，【待决策日志 E.3：第 6 条"用这些参数的随机汤"包不包括离已发表参数很近的格点】） | 个人随账户；全局永久【新提议 N10，待 D-039 扩展】。个人位图按隐私文档 PC3【待 D-039】：0 级只在浏览器，服务器只收面积和日期；1 级以上存私库，只给本人看 |
+| 慧眼标记 | `prov`（待描述库）· `flagger` 署名标识 · `seq` | 记功时公开（署名表）；0 级也保留，只用于记功（D-039） | 记了功的永久；其余随账户 |
+| 野外笔记页 | `nb:…` · `account_id` 私 · `date` · `items`：服务器已有记录的引用（临时编号、LEN、证书）、观察志新增、批注（平台不公开，不标 ‡；玩家导出分享时的许可【待 PC16】）。路线、起点种、"有趣"标记和观察摘要任何级别都只留在浏览器，不上传（D-039 连同 PG15 采纳）· `hidden_params` 导出中恒为 true，第一阶段没有关掉的开关（D-015）【待 PG16】 | 私密；客户端生成，只在玩家按"保存"时上传；"分享"就是导出文件，第一阶段不设托管的分享链接；不进日志，不进导出【新提议 N20】【待 PG16】 | 账户存续，玩家可删 |
+| 测绘 | 个人：`account_id` 私 · `slice` · 去过哪些格子的无序位图（不含时间和顺序）· 测绘面积和面积第一次 > 0 的日期【待 TM13】。全局：`slice` · `cell` · `terrain` dead / chaotic / life_band · `proto`（如 `terrain/1.0.0`）· `runs`（4 个汤的结果字母）· `check`（4 个末态哈希拼接后的哈希）· `sources` {census, registered, reports}【待 CA4、CA6】 | 个人私密；测绘面积默认只给本人看，本人可以选择公开（同观察志）【待 CA7】。全局公开，只含匿名计数，`reports` 不足 5 批不公开；服务器只在地形区里算地形，不进文献邻域（普查文档第 2.5 节，D-049） | 个人随账户；全局永久【新提议 N10】（D-039 扩展）。个人位图按隐私文档 PC3（D-039）：0 级只在浏览器，服务器只收面积和日期；1 级以上存私库，只给本人看 |
 
 ### 3.6 普查、新手区、悬赏、引用、周报与行为类别
 
 | 实体 | 字段 | 公开 | 保留 |
 |---|---|---|---|
-| 普查运行 | `CEN-…` · `spec` · `region`（格点上的参数范围）· `algorithm` {name, version, code 哈希} · `prng_seed`：`census.started` 只写取种规则 {rule: census-seed/1, beacon_after_seq}（种子取之后发布的第一个每日链头），`census.ended` 写数值【待 CA9】· `budget` 核分钟，计划和实际，不写金额【待 CA11】· `chosen_by` 团队；顾问只在本人同意时列名【待 D-040 第 7 条】· `reasons` ‡ · `started_at`、`ended_at` · `outputs` {specimens, cells} · `initiator`、`priority_until`（第一阶段为空，D-008；第二阶段【待 D-016】） | 公开 | 永久 |
-| 新手考察区 | `NZ-…` · `spec` · `region` · `active_from`、`active_to`（事先公布；轮换时实际结束日由替代区的 `replaces` 和 `active_from` 决定，已发布的事件不改）· `backup`：备用区的区域和理由、唯一可能的轮换日期和触发规则 · `replaces`：只在轮换时写被替代的 NZ 编号【待 CA15】· `reasons` ‡ · `kind`：`novice`（新手区）/ `test`（试测区）/ `tutorial`（退路教程点、试测教程点），后两种用同一套字段、同一个事件公开，编号同样用 `NZ-`【待 RC9、UX8】 | alpha 开放前公开【待 D-043】；试测区和试测教程点 P1-W3 随新手区公开 | 永久 |
-| 悬赏 | `BTY-…` · `fmt` bounty/1 · `question` ‡ · `source`（Q 编号）· `publisher`：第一阶段固定为 team【待 SB11】· `co_designers`（研究者，按同意署名，不同意的写人数）· `scope`、`eligibility`、`mode` discovery / collection / record、`record_metric`、`tracks` · `judge` {id, version, code 哈希, framework, spec} · `baseline` · `preregistration` ‡、`credit_commitment` ‡ · `reward` 只有署名和荣誉【待 D-019】· `announced_at`、`opens_at`、`deadline` 可空、`objection_days` · `publication_policy` ‡ · `data_license` · `status` announced / open / closed 加 `closed_reason`。定义见种子悬赏第 8 节【待 SB14】 | 公开 | 永久 |
+| 普查运行 | `CEN-…` · `spec` · `region`（格点上的参数范围）· `algorithm` {name, version, code 哈希} · `prng_seed`：`census.started` 只写取种规则 {rule: census-seed/1, beacon_after_seq}（种子取之后发布的第一个每日链头），`census.ended` 写数值【待 CA9】· `budget` 核分钟，计划和实际，不写金额【待 CA11】· `chosen_by` 团队；顾问只在本人同意时列名【待 D-040 第 7 条】· `reasons` ‡ · `started_at`、`ended_at` · `outputs` {specimens, cells} · `initiator`、`priority_until`（第一阶段为空，D-008；第二阶段，D-016） | 公开 | 永久 |
+| 新手考察区 | `NZ-…` · `spec` · `region` · `active_from`、`active_to`（事先公布；轮换时实际结束日由替代区的 `replaces` 和 `active_from` 决定，已发布的事件不改）· `backup`：备用区的区域和理由、唯一可能的轮换日期和触发规则 · `replaces`：只在轮换时写被替代的 NZ 编号【待 CA15】· `reasons` ‡ · `kind`：`novice`（新手区）/ `test`（试测区）/ `tutorial`（退路教程点、试测教程点），后两种用同一套字段、同一个事件公开，编号同样用 `NZ-`【待 RC9、UX8】 | alpha 开放前公开（D-043）；试测区和试测教程点 P1-W3 随新手区公开 | 永久 |
+| 悬赏 | `BTY-…` · `fmt` bounty/1 · `question` ‡ · `source`（Q 编号）· `publisher`：第一阶段固定为 team【待 SB11】· `co_designers`（研究者，按同意署名，不同意的写人数）· `scope`、`eligibility`、`mode` discovery / collection / record、`record_metric`、`tracks` · `judge` {id, version, code 哈希, framework, spec} · `baseline` · `preregistration` ‡、`credit_commitment` ‡ · `reward` 只有署名和荣誉（D-019）· `announced_at`、`opens_at`、`deadline` 可空、`objection_days` · `publication_policy` ‡ · `data_license` · `status` announced / open / closed 加 `closed_reason`。定义见种子悬赏第 8 节【待 SB14】 | 公开 | 永久 |
 | 判定结果 | `judge:sha256:…` · `fmt` judge-result/1 · `bounty` · `submission`：第一阶段只判 LEN，不收未登记的标本【待 SB4】· `submitter` 署名标识（只有人工提交的；登记时自动判定的没有）· `nominator` 可空 · `track` human / tool_census · `priority` 描述提交事件的序号 · `cert` · `judge` 版本 · `engine` · `result` pass / fail / ineligible / not_testable 加原因码 · `metrics` · `run` 链哈希 · `supersedes`、`reason`（更正时）· `sig`。决定成败的量逐位可复现【待 D-034、SB14】 | 公开（只判已登记条目，不需要暂缓） | 永久 |
 | 引用 | `kind`：第一阶段只记 origin（起点引用）；academic、construct、experiment 预留，第一阶段不记（PRD 第 4 节）· `citing`、`cited` LEN · `evidence` 起点段对象的哈希（§3.2）或 DOI · `self` · `verified_by` | 公开 | 永久 |
 | 周报 | `WR-…` · 内容寻址的 `weekly-report/1` 对象：期号、截止序号（同每周导出）、事实表 `weekly-facts/1` 的哈希、每句的中英槽位文本与引用 `ev:…`、提示词和规则版本、模型标识；更正版另有 `supersedes`【待 AI14、AI15】 | 公开；只存槽位文本，显示名在渲染时取（AI 助手第 4.8 节） | 永久；更正发新版，旧版不改（隐私类错误的旧版网页不再显示） |
@@ -141,7 +141,7 @@
 
 | 实体 | 字段 | 公开 | 保留 |
 |---|---|---|---|
-| 好奇心事件 | `subject` 内部伪名 私 · `session` 私 · `kind` interesting / pairwise / why / dwell / skip / zoom / move（GDD §11.1；第一阶段只记 interesting、skip、dwell、zoom，PRD F31，事件字典见遥测与指标口径）· `params`（格点）· `target`（标本、条目或格点；罗盘的"换一个"不记成事件，遥测 TM10）· `value` 小整数档位（如停留、放大的档）· `client_time`（客户端上传前和入库时各截到 UTC 整点）【待 TM10】· `consent_level` 记录时的级别 | 私密。单独存放：不进事件日志，不进每周导出【待 D-035】。2 级的匿名版本另行发布，以伦理审查为前提（GDD §11.4、D-036）。0 级和未成年人不收集（GDD §11.2）。运营遥测（崩溃、性能、登录）同样单独存放【待 D-039】 | 原始数据 24 个月（暂定）；撤回同意后停止使用并删除，期限待隐私文档 [待法务确认] |
+| 好奇心事件 | `subject` 内部伪名 私 · `session` 私 · `kind` interesting / pairwise / why / dwell / skip / zoom / move（GDD §11.1；第一阶段只记 interesting、skip、dwell、zoom，PRD F31，事件字典见遥测与指标口径）· `params`（格点）· `target`（标本、条目或格点；罗盘的"换一个"不记成事件，遥测 TM10）· `value` 小整数档位（如停留、放大的档）· `client_time`（客户端上传前和入库时各截到 UTC 整点）【待 TM10】· `consent_level` 记录时的级别 | 私密。单独存放：不进事件日志，不进每周导出（D-035）。2 级的匿名版本另行发布，以伦理审查为前提（GDD §11.4、D-036）。0 级和未成年人不收集（GDD §11.2）。运营遥测（崩溃、性能、登录）同样单独存放（D-039） | 原始数据 24 个月（暂定）；撤回同意后停止使用并删除，期限待隐私文档 [待法务确认] |
 
 ## 4. 状态机
 
@@ -150,7 +150,7 @@
 | 从 | 触发事件 | 到 | 说明 |
 |---|---|---|---|
 | — | `collection.committed` | 采集箱 | 分配临时编号，记采集承诺 |
-| 采集箱 | `precheck.done` | 已预检 / 幻影 | 整数实现从成体快照复跑，以服务器复跑为准；幻影不能送检，不进观察志【待 D-029、CH8】 |
+| 采集箱 | `precheck.done` | 已预检 / 幻影 | 整数实现从成体快照复跑，以服务器复跑为准；幻影不能送检，不进观察志【待 CH8】（D-029） |
 | 已预检 | `assay.requested`，然后 `assay.certified` / `assay.failed` | 鉴定中，然后已鉴定 / 未通过 | 排队；未通过的保留期见 §3.2；原因码见 §6.3 |
 | 已鉴定 | `dedup.decided` | 待描述（auto_new；grey 也到这里，带"查重存疑"标记）/ 已知种（auto_same，只记观察，法规第 14 条第 9 款） | 灰色评审在有人提交描述时才开（§4.2，dedup v1 第 8.1 节）【待 DD11】 |
 | 已知种 | `review.opened`（case grey，reason contest） | 评审中 | 采集者对自动判同申请一次复核，占一条描述配额（暂定）【待 DD11】 |
@@ -171,7 +171,7 @@
 | 搁置 | `description.lapsed`（superseded） | 失效 | 在先条目度过异议期；退还配额（暂定） |
 | 暂停、搁置 | `description.resumed` | 排队（原提交时间） | 在先描述没有成立；或在先条目被分拆、撤回，同种判定被推翻（第 10 条） |
 | 失效（因在先描述成立） | `description.resumed`（描述者申请） | 排队（原提交时间） | 在先条目分拆，所描述的标本属于分出来的种（第 38 条，暂定） |
-| 排队 | `literature_check.started`，然后 `literature_check.concluded` | 文献对照，然后名称审核 / 失效 | 参数落在已发表物种附近的候选先人工对照原文；认定是文献种的记为再发现，描述失效、只记采集者功劳和观察（第 45 条）【待 D-042(b)】 |
+| 排队 | `literature_check.started`，然后 `literature_check.concluded` | 文献对照，然后名称审核 / 失效 | 参数落在已发表物种附近的候选先人工对照原文；认定是文献种的记为再发现，描述失效、只记采集者功劳和观察（第 45 条）（D-042(b)） |
 | 排队 | `name_review.started` | 名称审核 | 24 小时目标（暂定，D-004）；文献附近的候选先经过上一行 |
 | 名称审核 | `name_review.returned` | 待改名 | 最多 2 次（第 30 条之一） |
 | 待改名 | `description.name_resubmitted` | 名称审核 | 72 小时内（暂定）；新承诺与第一个相连，优先权取第一个（第 8 条第 3 款） |
@@ -192,16 +192,16 @@
 | under_review | `registration.effective` | valid（异议期中） | 分配 LEN；记 `registered_at`；`objection_period_ends` = 登记时刻加 30 天（暂定） |
 | valid | `objection_period.ended` | valid（已度过异议期） | 记 `objection_cleared_at`（第 35 条；GDD §18.1 按此统计） |
 | valid | `ruling.issued`：同物异名或优先权成立 | synonym_of | 第 34、36、37 条 |
-| valid | `ruling.issued`：认定为文献种 | synonym_of（指向文献条目） | 第 46 条；没有许可时先建 `literature_reference`【待 D-042】 |
+| valid | `ruling.issued`：认定为文献种 | synonym_of（指向文献条目） | 第 46 条；没有许可时先建 `literature_reference`（D-042） |
 | valid | `ruling.issued`：描述不合格、可以补正 | valid，开补正期 | `cure.opened`，14 天（暂定）；`cure.completed` 后名称和优先权不变（第 34 条） |
 | valid | `ruling.issued`：伪造、违规行为；或 `cure.expired` | withdrawn | 第 34、40 条，第 56 条之一 |
-| valid | `certificate.corrected` 后不再满足登记条件，按撤回流程 `ruling.issued` | withdrawn | 证书更正本身不改状态（D-027(4)）【待 D-027】 |
+| valid | `certificate.corrected` 后不再满足登记条件，按撤回流程 `ruling.issued` | withdrawn | 证书更正本身不改状态（D-027(4)） |
 | valid | `name.changed` / `taxonomy.recombined` / `entry.split` | valid | 违规改名（第 56 条，原名在公开视图隐去）；新组合（第 39 条）；分拆（第 38 条）。编号和优先权不变 |
 | synonym_of、withdrawn | `appeal.ruled` 成立，或 `ruling.issued` 推翻原判 | 原状态 | 第 37 条第 4 款、第 55 条第 3 款 |
 | — | `literature.imported` | literature / literature_unreproduced | 第 42 条；在 G-文献可见时才写（§3.3），此前的导入和预览都在私密暂存区【待 D-040 第 2 条】 |
 | literature ↔ literature_unreproduced | `certificate.corrected` | 另一种 | 【新提议 N18】 |
 | — | `literature_reference.created` | literature_reference | 评审确认对应原文某个种时（第 42、45 条） |
-| literature_reference | `literature.imported` | literature / literature_unreproduced | 之后取得许可、退路升级为导入时，沿用同一个 LEN【新提议 N18，待 D-042】 |
+| literature_reference | `literature.imported` | literature / literature_unreproduced | 之后取得许可、退路升级为导入时，沿用同一个 LEN【新提议 N18】（D-042） |
 
 ### 4.4 窗口与暂停
 
@@ -266,7 +266,7 @@
 ```
 
 - **单一写入者**：序号在写入时顺序分配。`ts` 取服务器时钟，保证随序号单调不减；时钟回拨时沿用上一条的值。**先后只看序号**，`ts` 只用于显示和署名年份（法规第 10 条第 3 款、第 27 条第 3 款）。
-- **行为者**：`{"kind": "player", "attr": …}` 用每事件不同的署名标识。承诺事件用承诺里的那个，其他事件用载荷里的随机数另算，只看日志无法把同一个人的事件串起来（登记后署名表会公开谁是采集者和描述者）。其余写 `{"kind": "system", "id": "assay"}`（assay、dedup、census、registry、judge：悬赏的自动判定【待 SB14】）、`{"kind": "panel"}`（第一阶段的临时评审组【待 D-038】）和 `{"kind": "team"}`；具体是谁见裁决和署名表。
+- **行为者**：`{"kind": "player", "attr": …}` 用每事件不同的署名标识。承诺事件用承诺里的那个，其他事件用载荷里的随机数另算，只看日志无法把同一个人的事件串起来（登记后署名表会公开谁是采集者和描述者）。其余写 `{"kind": "system", "id": "assay"}`（assay、dedup、census、registry、judge：悬赏的自动判定【待 SB14】）、`{"kind": "panel"}`（第一阶段的临时评审组，D-038）和 `{"kind": "team"}`；具体是谁见裁决和署名表。
 - **链只覆盖信封**，载荷由 `payload_hash` 绑定。载荷有三种状态：**公开**（导出时附在信封后的 `payload` 字段）；**暂缓**（只有哈希，到公开时点再附上原文，任何人都能核对它在那个序号之前就已存在）；**隐去**（曾经公开、按规则不再显示；导出行去掉 `payload`，加 `withheld` 原因代码，两者都在信封之外，哈希不变，链照样能核对）。隐去用于法规第 56 条第 3 款的违规原名和法律要求的情形。已发布的导出和快照收不回，CHANGELOG 如实说明。
 - 信封里的 `type` 和 `ts` 总是公开，所以只在私密暂存区里发生、还不能让人知道"发生过"的事（如获准之前的文献导入，§3.3）不写日志。
 
@@ -299,7 +299,7 @@
 
 ### 6.4 撤回同意与删除账户
 
-只追加的日志和删除权的冲突，按下面处理【新提议 N7，待 D-048，[待法务确认] Q24】：
+只追加的日志和删除权的冲突，按下面处理【新提议 N7】（D-048；[待法务确认] Q24）：
 
 1. 删除账户的私密字段（邮箱、认证、地区等），销毁账户盐。此后所有署名标识都无法再关联到这个人。
 2. 私密载荷（没有成立的描述、采集箱里没公开的标本）按账户加密存放，删除时销毁密钥（加密粉碎；单人时的做法见 §1）。链只含哈希，不受影响。审核中的描述改为失效（§4.2）。加密粉碎和留在链里的哈希是否满足删除义务 [待法务确认，Q24]。
@@ -310,9 +310,9 @@
 
 ## 7. 内容寻址与分享链接
 
-**内容存储**：`/cas/sha256/<hex>` 返回规范字节（规范 §8 的记录或 NTJ 对象）。传输可以压缩，哈希只对解压后的规范字节计算【待 D-026】。私密对象不提供，只有一个例外：玩家分享未描述的标本时，它的参数记录和状态记录凭哈希可取，不列入任何公开索引（哈希只在分享出去的链接里）。
+**内容存储**：`/cas/sha256/<hex>` 返回规范字节（规范 §8 的记录或 NTJ 对象）。传输可以压缩，哈希只对解压后的规范字节计算（D-026）。私密对象不提供，只有一个例外：玩家分享未描述的标本时，它的参数记录和状态记录凭哈希可取，不列入任何公开索引（哈希只在分享出去的链接里）。
 
-**链接格式**【新提议 N12】（`<host>` 待定名，【待 D-013】）：
+**链接格式**【新提议 N12】（`<host>` 待定名，，D-013）：
 
 | 链接 | 形式 |
 |---|---|
@@ -324,15 +324,15 @@
 
 - `/s/1` 的 1 是链接格式版本。旧版本永远能解析；新格式用 `/s/2`。
 - 状态放在 `#` 之后，浏览器不把它发给服务器。`p` 是 72 字节参数记录的 base64url，总是内联，规范版本就在记录里。`z` 是状态记录的 deflate-raw 压缩再 base64url（浏览器自带的 CompressionStream [verify：目标浏览器都支持]）；压缩后不超过 6 KiB（暂定，第一阶段实测）才内联，否则省略 `z`，按 `h` 从内容存储取。解压后必须核对 `h`，不一致就拒绝运行。
-- 分享未描述标本前的提示见法规第 11 条和交接规格 CH16；野外笔记导出时一律隐藏参数（D-015 建议，§3.5）。经链接得到的标本，探索路径的 `seed` 记为 link（法规第 11 条第 3 款）。编号和哈希都不依赖域名；换名时旧域名永久重定向，定名前先用中性域名（暂定）。
-- **嵌入**：PRD 第 4 节把嵌入代码推迟到 alpha 首版之后（新提议），本文先定格式，路径 `/embed/1/` 先保留。实现时用单线程的 WASM 参考实现（第一阶段不用线程【待 D-037】），不需要跨源隔离（COOP/COEP），能放进别人的网页。默认整数精确运行；跑不动时是降为浮点预览并标明，还是按交接规格原则 6（对外只用整数帧）只慢放或显示静态整数帧（客户端性能第 7.5 节），待创始人定【待决策日志 E.3：嵌入代码里的实时预览用什么】。
+- 分享未描述标本前的提示见法规第 11 条和交接规格 CH16；野外笔记导出时一律隐藏参数（D-015，§3.5）。经链接得到的标本，探索路径的 `seed` 记为 link（法规第 11 条第 3 款）。编号和哈希都不依赖域名；换名时旧域名永久重定向，定名前先用中性域名（暂定）。
+- **嵌入**：PRD 第 4 节把嵌入代码推迟到 alpha 首版之后（新提议），本文先定格式，路径 `/embed/1/` 先保留。实现时用单线程的 WASM 参考实现（第一阶段不用线程，D-037），不需要跨源隔离（COOP/COEP），能放进别人的网页。默认整数精确运行；跑不动时按交接规格原则 6（对外只用整数帧）只慢放或显示静态整数帧，不用浮点预览（D-060；客户端性能第 7.5 节）。
 - **降级**：遇到不认识的规范标识，不得换别的版本运行（规范 §3）；查看器从归档里加载该版本的引擎（GDD §14.2(6)），加载不了就只显示编号、哈希和静态图，并说明原因。遇到不认识的链接格式版本，显示原始片段和说明页链接，不猜。
 
 ## 8. 每周导出与 DOI 快照
 
 ### 8.1 每周导出包【新提议 N13】
 
-每周一 00:00 UTC（暂定）截止，48 小时内（暂定）发布，全量。第一次公开导出要等 PRD §2.3 的 G-导出（D-018 定案，D-035、D-047 拍板）。包名 `catalog-export-2026-W46`（ISO 周）。发布后不替换：发现错误就在下一包更正，写进 CHANGELOG。每周包在线保留 12 个月（暂定），DOI 快照永久（§8.5）。`specimens/` 里的文件按哈希命名，各期相同的文件在托管端只存一份，每期只有新增的占空间（预算见[团队、预算与资助计划](../product/team-budget-funding.md) §3.3）。
+每周一 00:00 UTC（暂定）截止，48 小时内（暂定）发布，全量。第一次公开导出要等 PRD §2.3 的 G-导出（D-018、D-035、D-047 已采纳）。包名 `catalog-export-2026-W46`（ISO 周）。发布后不替换：发现错误就在下一包更正，写进 CHANGELOG。每周包在线保留 12 个月（暂定），DOI 快照永久（§8.5）。`specimens/` 里的文件按哈希命名，各期相同的文件在托管端只存一份，每期只有新增的占空间（预算见[团队、预算与资助计划](../product/team-budget-funding.md) §3.3）。
 
 | 文件 | 内容 | 许可 |
 |---|---|---|
@@ -341,11 +341,11 @@
 | `descriptions.jsonl.gz`、`commitments.jsonl.gz` | 登记描述的全文、名称字段、AI 声明、观察记录（粗化）；已登记条目的承诺原文和随机数 | 文字 CC BY 4.0，其余 CC0 |
 | `specimens/`、`trails.jsonl.gz`、`certificates.jsonl.gz`、`dedup.jsonl.gz` | 规范 §8 记录，按哈希命名（`<hex>.parm`、`<hex>.stat.gz`），轨迹分段列表；核和查找表由参数重算（规范 §9.1），不附。已公开的探索路径、证书（含签名）、查重报告 | CC0 |
 | `reviews`、`objections`、`rulings`、`taxonomy`（均为 `.jsonl.gz`） | 评审、异议、裁决、申诉；属、修订和组合历史 | 理由文字 CC BY 4.0，其余 CC0 |
-| `census/`、`novice_zones.jsonl`、`bounties.jsonl`、`judge_results.jsonl`、`judge_specs/`、`citations.jsonl`、`behaviour_classes.jsonl` | 普查运行、待描述库的普查标本、全局测绘格；新手区；悬赏与判定；判定器规格原文和测试向量【待 SB14】；引用；行为类别 | 问题、署名承诺和定义文字 CC BY 4.0；判定器规格和测试向量同测试向量的许可【待 D-047】；其余 CC0 |
+| `census/`、`novice_zones.jsonl`、`bounties.jsonl`、`judge_results.jsonl`、`judge_specs/`、`citations.jsonl`、`behaviour_classes.jsonl` | 普查运行、待描述库的普查标本、全局测绘格；新手区；悬赏与判定；判定器规格原文和测试向量【待 SB14】；引用；行为类别 | 问题、署名承诺和定义文字 CC BY 4.0；判定器规格和测试向量同测试向量的许可（D-047）；其余 CC0 |
 | `credits.jsonl`、`events/YYYY-MM.jsonl.gz`、`log_heads.jsonl`、`keys.json` | 署名表（§3.1）；公开视图的事件日志，从第 1 条起，按月分卷；全部每日链头；签名公钥 | CC0 |
 | `literature/` | 文献条目的数据；选 A′、A″ 时单独成目录，附各自的许可（法律备忘 §3.4 第 4 点） | 文 |
 
-**不导出**：好奇心数据【待 D-035】；运营遥测【待 D-039】；私密字段；审核中的和没有成立的描述；玩家采集箱；观察志（只给计数）；野外笔记；账户与同意记录；涉及 Chan 物种的内部回归向量（D-045）；名称审核用的内部文献名单和对照参数表（法规第 22 条第 4 款、第 45 条第 4 款）；G-文献可见之前的文献数据【待 D-040】。图版不进导出，由生成器从数据重算；图版的许可人和形式见法律备忘 Q16。
+**不导出**：好奇心数据（D-035）；运营遥测（D-039）；私密字段；审核中的和没有成立的描述；玩家采集箱；观察志（只给计数）；野外笔记；账户与同意记录；涉及 Chan 物种的内部回归向量（D-045）；名称审核用的内部文献名单和对照参数表（法规第 22 条第 4 款、第 45 条第 4 款）；G-文献可见之前的文献数据【待 D-040】。图版不进导出，由生成器从数据重算；图版的许可人和形式见法律备忘 Q16。
 
 ### 8.2 清单
 
@@ -391,16 +391,16 @@ plate: {renderer: plate/1, input: "sha256:…", svg: "sha256:…"}   # 可选；
 provenance:
   collection: {seq: 20114, ts: 2026-11-02T13:41:07.000Z, commitment: "sha256:7d0e…", trail: "trail:sha256:7c1e…"}
   description: {seq: 20131, ts: 2026-11-02T14:05:12.000Z, commitment: "sha256:a91f…"}
-metrics_flags: {in_novice_zone: false, in_census_coverage: true, census_collected_before: false}   # 登记时冻结【待 D-043】
+metrics_flags: {in_novice_zone: false, in_census_coverage: true, census_collected_before: false}   # 登记时冻结（D-043）
 reference_specimens: []
 range: {samples: 37}          # 分布区地图推迟到 alpha 之后（GDD §19.1）
 citations: {origin: 1}        # 第一阶段只记起点引用（§3.6）
 observers: "<5"
-license: {data: CC0-1.0, text: CC-BY-4.0, plates: CC-BY-4.0}   # 【待 D-018】；plates 待法律备忘 Q16；文献条目按 A′、A″ 覆盖
+license: {data: CC0-1.0, text: CC-BY-4.0, plates: CC-BY-4.0}   # （D-018）；plates 待法律备忘 Q16；文献条目按 A′、A″ 覆盖
 history: [20114, 20131, 20877]
 ```
 
-`metrics_flags` 在登记时算好并冻结，供人类独有发现率扣除新手区（`in_novice_zone` 也包括试测区，即 `kind` 为 `novice` 或 `test` 的区域【待 RC9、TM6】）、限定普查覆盖区和排除工具采集（看 `credits.collector.method`）【待 D-043】（法规第 19、51 条），避免事后改口径【新提议 N19】。三个标记的定义见遥测与指标口径第 5 节 V1b（`in_census_coverage` 只算采集前已跑完的普查运行）【待 TM6】。
+`metrics_flags` 在登记时算好并冻结，供人类独有发现率扣除新手区（`in_novice_zone` 也包括试测区，即 `kind` 为 `novice` 或 `test` 的区域【待 RC9、TM6】）、限定普查覆盖区和排除工具采集（看 `credits.collector.method`）（D-043）（法规第 19、51 条），避免事后改口径【新提议 N19】。三个标记的定义见遥测与指标口径第 5 节 V1b（`in_census_coverage` 只算采集前已跑完的普查运行）【待 TM6】。
 
 ### 8.4 异名、撤回和改名怎样表示
 
@@ -412,18 +412,18 @@ history: [20114, 20131, 20877]
 
 ### 8.5 DOI 快照、数据说明书与工具
 
-**DOI 快照**（GDD §14.9）：某一期每周包，加全部内容寻址对象、公开视图的完整日志、全部链头、参考实现源代码的 SWHID 和构建产物、规范正文与公开测试向量（许可【待 D-047】）、查重模型的权重和代码【待 D-034】。文件和清单格式与每周包相同，研究者用同一套工具读。存 Zenodo，整个系列一个概念 DOI，每次一个版本 DOI [verify：Zenodo 的版本机制]；镜像到互联网档案馆。
+**DOI 快照**（GDD §14.9）：某一期每周包，加全部内容寻址对象、公开视图的完整日志、全部链头、参考实现源代码的 SWHID 和构建产物、规范正文与公开测试向量（许可，D-047）、查重模型的权重和代码（D-034）。文件和清单格式与每周包相同，研究者用同一套工具读。存 Zenodo，整个系列一个概念 DOI，每次一个版本 DOI [verify：Zenodo 的版本机制]；镜像到互联网档案馆。
 
 **第一个 DOI**【新提议 N15】：PRD 第 4 节把月度 DOI 快照移出第一阶段（新提议），本文按此写。第一阶段内，引用写导出编号加清单哈希（如 `2026-W46` + `sha256:…`）。第一个 DOI 用第一阶段最后一期每周导出（PRD P1-W8）做，在 GDD §18.1 的统计时点（第一阶段结束后 30 天）之前存档，供研究者引用（PRD 第 1 节 V3）；此后按月。前提：D-018 已定案；D-048 和 Q24 已有结论（快照发出就收不回）；文献数据按 D-040。前提不满足就推迟 DOI，每周导出照常。开工后、alpha 之前，先用测试沙盒数据生成一份**样例导出**（编号用 `TST-`，标 `sample: true`，不含任何玩家数据），请顾问研究者看格式；这也是访谈问题 Q-07 的输入。
 
 **数据说明书**（`DATASHEET.md`）写：用途、组成、采集过程、各文件的许可、怎样复核、维护方式，以及**已知偏差**：
 
-1. 新手考察区是富矿，区内登记偏多，用 `in_novice_zone` 扣除【待 D-043】；普查选区由团队和顾问选（D-008），覆盖不均，用 `in_census_coverage` 限定。
-2. 一切只在 lenia-q16 的格点和合法 R、T、N 下成立；"柏拉图型"是操作性标签，不等于 Davis（2024）的判据；只在浮点预览里稳定的结构（幻影）不在图鉴里【待 D-029】。
+1. 新手考察区是富矿，区内登记偏多，用 `in_novice_zone` 扣除（D-043）；普查选区由团队和顾问选（D-008），覆盖不均，用 `in_census_coverage` 限定。
+2. 一切只在 lenia-q16 的格点和合法 R、T、N 下成立；"柏拉图型"是操作性标签，不等于 Davis（2024）的判据；只在浮点预览里稳定的结构（幻影）不在图鉴里（D-029）。
 3. `literature_reference` 没有数据；文献种附近的候选靠人工对照，查重较弱（法规第 45 条）；早期查重模型较弱，异名会滞后被发现（法规第 35 条）；查重报告里指向私密对象的项只有登记后才能核对；采集者只按同一规则点认定，相邻格点上更早的采集记录认不出（dedup v1 第 4 节）。
 4. 邀请制内测，人数按 PRD 的批次（GDD §19.1 的目标是 200–500 人），偏生命游戏和 Lenia 爱好者；每人每周描述配额相同（D-005）；推荐会影响玩家去哪里看（GDD §11.3）。先后按日志序号，时间戳只供显示。
 
-**研究者工具**放在代码仓库（许可【待 D-032】）：核对清单、签名和文件哈希；核对事件链和每日链头；用公开的原文重算每个已登记条目的承诺；从参数重算 hP、hK、hG；用参考实现复跑模式标本，核对轨迹链（可以抽样）；从日志重建条目投影，与 `entries.jsonl` 比对。最小的读取和核对示例：
+**研究者工具**放在代码仓库（许可，D-032）：核对清单、签名和文件哈希；核对事件链和每日链头；用公开的原文重算每个已登记条目的承诺；从参数重算 hP、hK、hG；用参考实现复跑模式标本，核对轨迹链（可以抽样）；从日志重建条目投影，与 `entries.jsonl` 比对。最小的读取和核对示例：
 
 ```python
 import gzip, hashlib, json
@@ -463,8 +463,8 @@ print(sum(e["status"] == "valid" for e in entries), "valid entries")
 | `registered_at`；`objection_period_ends`（日期） | 同名，加 `registered_seq`；改为时刻，加 `objection_cleared_at` | 加序号；便于按 §18.1 统计 |
 | `universe.kernel`、`growth`、`discretization`、`generated`；`type_specimen.window` | 规范编码的整数（kf、gf、R、T、mu_q、sigma_q、β 分数对）加 `params`（hP）；`type_specimen.kernel`、`growth_lut`、`n` | 十进制只作显示（规范 §3）；生成结果移到模式标本；只有 N×N（规范 §4） |
 | `trajectory_hashes {every, steps, chain, segments}` | `trajectory {interval, steps, chain, segments}` | 改名；定义分段列表（§3.2） |
-| `names.authority`（"lin_hai, 2026"）；`credits.*`、`ai_assistance` | `name.authority` 加 `name.year`；`credits.*.display`（来自署名表）加 `method`；`ai_assistance` 分项声明 | 显示形式不变；显示名可变为"匿名贡献者"【待 D-048】；法规第 17 条第 3 款 |
-| `assay.*`；`dedup` | 独立的证书加 `assay_summary`；`dedup` 加 `report`、`model` | 证书单独存放、签名；模型版本【待 D-034】；`speed` 从"格/步"改为 R/TU，T 变了仍可比（assay AS7） |
+| `names.authority`（"lin_hai, 2026"）；`credits.*`、`ai_assistance` | `name.authority` 加 `name.year`；`credits.*.display`（来自署名表）加 `method`；`ai_assistance` 分项声明 | 显示形式不变；显示名可变为"匿名贡献者"（D-048）；法规第 17 条第 3 款 |
+| `assay.*`；`dedup` | 独立的证书加 `assay_summary`；`dedup` 加 `report`、`model` | 证书单独存放、签名；模型版本（D-034）；`speed` 从"格/步"改为 R/TU，T 变了仍可比（assay AS7） |
 | `provenance.*_at`、`*_commitment`、`exploration_path`、`birth_reproducible` | `provenance.collection`、`description` 的 `{seq, ts, commitment}`，路径在 `collection.trail`；`birth_reproducible` 推迟 | 先后按序号（法规第 10 条第 3 款）；路径不记墙钟时间（N9）；PRD 第 4 节 |
 | `citations`；`license` | 由引用记录算出；条目级 `license` 加导出包按文件标许可 | 只读投影；文献条目可以覆盖 |
 | — | 新增 `schema`、`prov`、`metrics_flags`、`combinations`、`name_changes`、`reference_specimens`、`observers`、`history`、`as_of_seq`；可选的 `plate`【待 PG8】 | |
@@ -473,9 +473,9 @@ print(sum(e["status"] == "valid" for e in entries), "valid entries")
 
 ## 需要新开的决策条目
 
-依赖的提议条目已在正文就地标出：D-013、D-015–D-019、D-021、D-024、D-026、D-027、D-029–D-040、D-042–D-045、D-047、D-048；其他 P1 文档的提议：隐私文档 PC2、PC3、PC6、PC7、PC16、PC18，交接规格 CH8、CH10、CH14、CH15、CH18，assay AS14–AS16，dedup DD10、DD11、DD16，系统架构 AR9、AR10，普查 CA4、CA6、CA7、CA9、CA11、CA15，AI 助手 AI3、AI8、AI14、AI15，遥测 TM6、TM10、TM13，悬赏 SB4、SB11、SB14，纸面生成器 PG8、PG15、PG16，内测招募 RC6（2026-10-23 的跨文档修订按它们补了字段和事件，拍板前同样不是决定）；决策日志 E.3 的"嵌入代码里的实时预览用什么"（§7）和对 D-040 第 6 条的理解（§3.5 测绘）。下面是本文新提的选择，建议在决策日志里开条目。拍板人：创始人（暂代后端；到岗后可提修改）。截止建议：默认"第一阶段开工前"。N1–N6、N8、N9、N12、N16 最晚在**第一条公开事件之前**（alpha 开放或首次公布普查、新手区，以先到者为准，§9 第 3 条），不是第一条登记之前；N19 随指标口径在 G-邀请 之前冻结；N13 在第一次公开导出前（G-导出）；N15 在第一阶段结束前。
+2026-10-30 创始人把本节全部提议采纳为当前方案（决策日志 E.1）；标在'第一条公开事件前'截止的，在那之前逐条复核。正文引用的日志条目除 D-040 和 D-028 的 R、T 范围外都已采纳；其他 P1 文档的提议：隐私文档 PC2、PC3、PC6、PC7、PC16、PC18，交接规格 CH8、CH10、CH14、CH15、CH18，assay AS14–AS16，dedup DD10、DD11、DD16，系统架构 AR9、AR10，普查 CA4、CA6、CA7、CA9、CA11、CA15，AI 助手 AI3、AI8、AI14、AI15，遥测 TM6、TM10、TM13，悬赏 SB4、SB11、SB14，纸面生成器 PG8、PG15、PG16，内测招募 RC6（2026-10-23 的跨文档修订按它们补了字段和事件，同为当前方案）；原 E.3 的嵌入预览和对 D-040 第 6 条的理解已裁决为 D-060、D-049。下面是本文新提的选择。复核人：创始人（暂代后端；到岗后可提修改）。复核截止：默认"第一阶段开工前"。N1–N6、N8、N9、N12、N16 最晚在**第一条公开事件之前**（alpha 开放或首次公布普查、新手区，以先到者为准，§9 第 3 条），不是第一条登记之前；N19 随指标口径在 G-邀请 之前冻结；N13 在第一次公开导出前（G-导出）；N15 在第一阶段结束前。
 
-| 编号 | 条目 | 本文的建议 | 相关 |
+| 编号 | 条目 | 当前方案 | 相关 |
 |---|---|---|---|
 | N1 | 规范化 JSON 与通用编码 | RFC 8785 子集（§2.1）；浮点按 ECMAScript 写法写成字符串；对象数组的排序；轨迹分段列表格式。法规第 9 条写"用 D-026 的序列化"，D-026 只管状态和参数的二进制记录，这里补上承诺和事件 | D-021、D-026、法规第 9 条 |
 | N2 | 永久标识不含暂定名 | `fmt` 标签、包名、文件名都不用产品名 | D-013 |
@@ -507,3 +507,4 @@ print(sum(e["status"] == "valid" for e in entries), "valid entries")
 | 2026-10-21 | v0 底稿（审查后修订） | 按对抗式审查修订，节号不变：第一个 DOI 改到第一阶段结束后、嵌入代码只定格式（与 PRD 第 4 节一致）；格式冻结点改为第一条公开事件之前；分享的未描述标本凭哈希可取；文献导入到 G-文献可见才进日志；补文献对照、按第 38 条恢复、`cure.expired` 等状态转换，证书更正改走撤回流程；补没通过鉴定的送检的保留期、地名的预留；浮点写法和对象数组排序写死；原则 4 改为只说信封；好奇心类型、引用类型按 PRD；单人降级表去掉功能范围；补提议标记和 [待法务确认]；链接 PRD 计划路径 |
 | 2026-10-23 | v0 底稿（跨文档一致性修订） | 跨文档一致性修订：按交接规格补 `precheck_notes`、`precheck_by`、`trail/1`（`seed` 加 import、`step_unit` 各级取整、`from` 改为起点段对象的哈希）和观察记录 `check`；按 assay 补证书字段（`verdict`、`assay_frame`、`locality_recheck`、`died_at_tu`、运行的 `status` 等）、编号不含签名、失败和更正的原因码，示例的自愈指数、存活范围改为能测出的值，`speed` 单位改为 R/TU；按 dedup 补查重报告字段（DD16）和 `range_confirmed`，灰色标本留在待描述、提交描述时从暂停开评审，加对自动判同的复核申请；按系统架构补 `keys.json` 字段和 `key.*` 事件、评审证据改为帧序列对象；按普查补 `prng_seed` 的规则和数值、`budget` 单位、新手区 `backup`/`replaces`、全局测绘 `proto`/`runs`/`check`，个人测绘面积可选公开；按 AI 助手补 `WR-`、`rec:`、周报对象和 `weekly_report.published`、`tool` 带版本；按悬赏补字段、只判 LEN、自动判定、`judge:` 编号、两个署名角色、`bounty.opened`/`amended`、异议可针对判定结果；按纸面生成器补 `plate`、收窄野外笔记；按隐私文档补条款接受记录、评审和裁决署名经署名表、原则 4 的个人数据说明；按遥测补好奇心事件 `value`；按内测招募补邀请码标签；嵌入的降级写为待创始人定 |
 | 2026-10-23 | v0 底稿（终审清理） | 终审清理：去掉"PRD 计划路径、文档还没写"和"规格写出后再修订"的旧说明；嵌入的降级和全局测绘"只在地形区里算地形"补决策日志 E.3 标记，嵌入的引用改为客户端性能第 7.5 节；采集者认定的局限只引 dedup v1 第 4 节 |
+| 2026-10-30 | v0 底稿（拍板后更新） | 按 2026-10-30 的拍板更新：已采纳条目的【待】标记改为引用（D-040、D-028 除外）；D-015、D-018 的选项假设删去；§3.5 测绘的 E.3 标记改引 D-049；§7 嵌入按 D-060 只用整数慢放或静帧；文末前言写明新提议已采纳为当前方案 |
