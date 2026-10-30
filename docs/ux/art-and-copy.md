@@ -37,7 +37,7 @@
 | 高对比 | `sim-contrast` | 弱视、投影、找很淡的结构 | 黑到白，低值提亮（暂定）；γ = 0.5 那样的提亮过不了 CP18（见下），要在顶端加色相变化或另定 | 不做 |
 | 灰度 | `sim-grey` | 截图、打印、色觉不确定时 | 黑到白，CIELAB 的 L* 线性 | 做 |
 
-- 每种色图一张 256 项的表，状态 a/65535 线性取址；生成脚本和表随客户端发布，许可同代码【待 D-032】；构建时跑性能 CP18 的三项检查。**色标常显**：显微镜一侧总有色标，刻度 0、0.5、1（状态值），写色图名。0 值的颜色就是画布底色，画布周围的界面另用 `--scope-chrome`。
+- 每种色图一张 256 项的表，状态 a/65535 线性取址；生成脚本和表随客户端发布，许可同代码（D-032）；构建时跑性能 CP18 的三项检查。**色标常显**：显微镜一侧总有色标，刻度 0、0.5、1（状态值），写色图名。0 值的颜色就是画布底色，画布周围的界面另用 `--scope-chrome`。
 - **不做后期效果**：不做泛光、辉光、景深、运动模糊。"发光感"只来自深底和色图。后期效果会改变看到的大小和形状，还会额外制造亮度变化。
 - **将来的付费色图**（GDD §16 的"显微镜色图"）要过同样的检查，而且不能比免费色图更容易看出结构：看得更清楚就是发现上的优势（红线 2、D-009）。无障碍用的三种色图（含色盲友好的默认）永远免费。第一阶段没有付费项目（PRD 第 4 节）。
 - **CP18 的色差阈值**：性能 CP18 已改为相隔 1/8 量程的 CIEDE2000 有彩色 ≥ 10、灰阶类 ≥ 7（暂定）。纯亮度差在量程两端被压缩：L* 线性的灰阶两端约 7.6、正中约 12.5，任何黑到白的灰阶最多约 9.4，所以 `sim-grey` 和 `sim-contrast` 按灰阶类检查。γ = 0.5 的高对比在顶端约 3.8，只靠提亮过不了，构造由本文另定（AC2）；荧光色图能否全程 ≥ 10 要实测 [verify]。
@@ -240,7 +240,7 @@
 | 探索路径；出处 | exploration path; provenance | `trail`（`trail:sha256:…`）；`provenance` | 采到标本的那段参数路径和操作，0 级也保留；采集者、描述者、承诺和路径的合称 | D-012；数据模型 §3.2、§8.3；隐私文档 S3、S5 |
 | 预检；幻影 | Pre-check【AC13】；（幻影不上界面，写"只在浮点预览中出现"） | `precheck` ok / phantom；`precheck_notes` | 用整数实现从成体快照复跑（本机先跑，服务器复跑为准）；只在浮点预览里活着的结构 | GDD §8.2；D-029；交接规格第 7 节、CH8 |
 | 鉴定；送检；鉴定证书 | assay; send for assay; assay certificate | `assay.*`；`cert:sha256:…` | 服务器用参考实现跑标准测试，结果签名 | GDD §8.3；assay v1 |
-| 存活；局域性；周期；对称；速度 | survival; locality; period; symmetry; speed | `survival`；`locality` individual / expander；`period`；`symmetry`；`speed` | 证书的测量值。存活按时间单位计【待 D-033】；速度单位 R/TU（AS7）。`locality` 是局域性，不是"模式产地" | GDD §8.3；assay v1 §3 |
+| 存活；局域性；周期；对称；速度 | survival; locality; period; symmetry; speed | `survival`；`locality` individual / expander；`period`；`symmetry`；`speed` | 证书的测量值。存活按时间单位计（D-033）；速度单位 R/TU（AS7）。`locality` 是局域性，不是"模式产地" | GDD §8.3；assay v1 §3 |
 | 查重；查重存疑；连续性检验 | duplicate check; Possible duplicate; continuity test | `dedup.decided`：`auto_new` / `auto_same:LEN` / `grey`（评审编号在评审对象上，不在报告里，dedup DD16）；`continuity` | 与图鉴、待描述库和审核中的描述比对；自动判不了的灰色地带；一步步挪参数看能否连续变成对方 | GDD §8.4；dedup v1 |
 | 行为大类 | behaviour class | `classes`；实体"行为类别"`class` | 8 个机器标签（第 3.4 节），不是系统分类。数据模型的"行为类别"还包括第二阶段玩家提议的类别 | GDD §8.3；assay v1 §4；数据模型 §3.6 |
 | 离散化依赖；柏拉图型 / 非柏拉图型 | discretisation dependence; Platonic / non-Platonic (operational) | `discretization_runs`、`discretization_range`；`platonic` | 换 R、T 复跑的结果；在测过的更细的 R、T 下是否都存活（操作性定义，不等于 Davis 2024 的判据） | GDD §5.2、§8.3；assay v1 §3.7【待决策日志 E.3：研究简介里"柏拉图型"的说法】 |
@@ -249,8 +249,8 @@
 | 观察记录 | observation | `obs:` | 描述者本人在显微镜里复现并观察过的记录 | 法规第 16 条 |
 | AI 辅助声明 | AI-assistance declaration | `ai`；`ai_assistance` | 逐项声明哪部分用了哪类 AI 帮助 | 法规第 17 条 |
 | 采集承诺 / 描述提交承诺 | collection / description commitment | `collection-commitment/1` / `description-commitment/1` | 前者决定采集者功劳，后者决定命名优先权 | D-001；数据模型 §5 |
-| 优先权 | priority | — | 同一个种，第一个有效描述的学名有效 | 法规第 5、8 条【待 D-015】 |
-| 学名；属；种加词；词源说明 | scientific name; genus; epithet; etymology | `genus`、`epithet`、`etymology` | 拉丁化双名及其来历 | 法规第 20、23 条【待 D-017】 |
+| 优先权 | priority | — | 同一个种，第一个有效描述的学名有效 | 法规第 5、8 条（D-015） |
+| 学名；属；种加词；词源说明 | scientific name; genus; epithet; etymology | `genus`、`epithet`、`etymology` | 拉丁化双名及其来历 | 法规第 20、23 条（D-017） |
 | 俗名 | common name | `common` [{lang, text}] | 任何语言，可以多个，没有优先权 | 法规第 24 条 |
 | 命名者；署名 | author; authority | `name.authority`、`name.year` | 学名后的玩家 ID 和年份（研究简介的散文写 "namer"，界面用 author） | 法规第 27 条；数据模型 §8.3；隐私文档 S3 |
 | 名称审核 | name review | `name_review.*` | 自动过滤加人工审核，24 小时目标（暂定） | 法规第 29 条；D-004 |
@@ -263,9 +263,9 @@
 | 撤回（条目）/ 本人撤回（描述） | withdrawn / retracted | `withdrawn` / `description.retracted` | 按裁决撤回条目 / 描述者收回未登记的描述 | 法规第 40 条；数据模型 §4.2 |
 | 文献名；文献种 | literature name; literature species | `literature`、`literature_unreproduced` | 已发表的名字；经许可导入的条目 | 法规第 41–42 条 |
 | 文献引用条目；再发现 | literature reference; rediscovery | `literature_reference`；`literature_rediscovery` | 没有许可时只有名字、署名和原文链接的条目；被认定为文献种的玩家发现 | 法规第 42、45 条；D-041 |
-| 分类评审；命名委员会；临时评审组 | taxonomic review; Naming Committee; interim review panel | `RVW-…`；`panel` | 灰色地带、新属、改属；裁决争议；第一阶段由创始人和同意参与的顾问担任 | 法规第 50、53 条【待 D-038】 |
+| 分类评审；命名委员会；临时评审组 | taxonomic review; Naming Committee; interim review panel | `RVW-…`；`panel` | 灰色地带、新属、改属；裁决争议；第一阶段由创始人和同意参与的顾问担任 | 法规第 50、53 条（D-038） |
 | 命名法规 | Naming Code | — | 本作的命名规则 | 法规；隐私文档 J1 |
-| 许可 | licence | `license` {data, text, plates} | 数据 CC0、人写的文字 CC BY 4.0【待 D-018】；图版的许可待法律备忘 Q16 [待法务确认] | 数据模型 §2.3、§8.3；隐私文档 S4 |
+| 许可 | licence | `license` {data, text, plates} | 数据 CC0、人写的文字 CC BY 4.0（D-018）；图版的许可待法律备忘 Q16 [待法务确认] | 数据模型 §2.3、§8.3；隐私文档 S4 |
 | 图鉴；物种页；变化流；图版 | catalog; species page; Change feed【AC13】; plate | `entry/1`（`entries.jsonl`）；`ev:`；`plate/1` | 全部条目；一个条目的公开页；每天的新条目，每行指向事件编号；从整数帧生成的海克尔式图版 | GDD §8.6、§13.2；F24–F26 |
 | 宇宙图 | Atlas【AC13】（视图：My map / Community map【AC13】） | 切片 `slice`（`atlas-slice/1`） | 规则空间的二维切片，默认 μ–σ 平面 | GDD §5.2；普查 CA1 |
 | 地形：死寂 / 混沌 / 生命带 | terrain: dead / chaotic / life band | `terrain` dead / chaotic / life_band | 参考实现预先算好的公开底图 | 普查 CA4 |
@@ -288,9 +288,9 @@
 | 宇宙；宇宙规范；规则点 | universe; universe spec; rule point | `spec`（`lenia-q16/1.0`）；`params`（hP） | 一组完全确定的规则；版本化、永不修改的定义；规范版本加全部编码参数 | GDD §5.2、§5.4；法规第 3 条 |
 | 参考实现；轨迹指纹 | reference implementation; trajectory fingerprint | `engine`；`trajectory` | 只用整数运算、处处逐位一致的实现；每 256 步一个哈希连成的链 | GDD §14.2 |
 | 卷积核；核函数族；β；势 | kernel; kernel family; β (ring peak heights); potential | `kernel`（hK）、`kf`（1 = `exp-shell`）；`beta`；U | 半径 R 的同心环加权平均；各圈峰高，有理数、最大项为 1；卷积的结果 | GDD §5.1、附录 A；规范 §3、§5 |
-| 生长函数；μ；σ | growth function; μ (growth centre); σ (growth width) | `gf`（1 = `gaussian`）、`growth_lut`（hG）；`mu_q`；`sigma_q` | 以 μ 为中心、宽 σ 的钟形曲线，取值 −1 到 1；格点步长 0.0001（暂定）【待 D-024】 | GDD §5.1、附录 A |
+| 生长函数；μ；σ | growth function; μ (growth centre); σ (growth width) | `gf`（1 = `gaussian`）、`growth_lut`（hG）；`mu_q`；`sigma_q` | 以 μ 为中心、宽 σ 的钟形曲线，取值 −1 到 1；格点步长 0.0001（暂定）（D-024） | GDD §5.1、附录 A |
 | R；T；时间单位 | R (kernel radius); T (time resolution); time unit (TU) | `R`；`T`；`time_units` | 核的半径（格）；每个时间单位的步数，Δt = 1/T；允许范围【待 D-028】 | GDD §5.1；规范 §7 |
-| 状态；环面尺寸 | state; torus size N | `state`；`n` | 0–65535 的整数，界面显示为 0–1；N 取 128、256、512【待 D-025】 | 附录 A |
+| 状态；环面尺寸 | state; torus size N | `state`；`n` | 0–65535 的整数，界面显示为 0–1；N 取 128、256、512（D-025） | 附录 A |
 | 浮点预览；精确 | Float preview; Exact | — | 模式徽标的两种写法 | 性能 §5.1 |
 | 光敏安全模式；显示已平滑；减弱动态 | Flash limiting; Display smoothed; Reduce motion【AC13】 | — | 限制亮度来回变化的频率；限速器改动了画面；模拟默认暂停 | 性能 §7、CP19；AC14 |
 
