@@ -2,7 +2,7 @@
 
 > 版本：v0 草稿 · 日期：2026-10-23 · 状态：待创始人审阅；PRD 排在 P1-W1 与顾问共同设计、P1-W3 检查点 B 验收判定器、P1-W5 上线（[PRD](../product/phase1-prd.md) 第 6 节）· 负责：创始人/制作人（选题、协议、署名）+ 后端与数据工程师（判定器，到岗前由创始人暂代，D-044）+ 共同设计的研究者（只提建议，D-040 第 7 条）· 《博物志》和 Naturalis 都是暂定名（D-013）
 >
-> 依据：[GDD v0.2](../naturalis-gdd.md) §2.2、§3.1(2)、§3.2(3)、§3.2(5)、§9.3、§11.2–§11.3、§15、§16、§18.1、§19.1；[决策日志](../decision-log.md)；[第一阶段 PRD](../product/phase1-prd.md) F35、第 1、4、7、8 节；[数据模型](../tech/data-model.md) §3.1、§3.6、§5、§6.3、§8.1；[鉴定规格 assay v1](../tech/assay-v1.md)（下称 assay）；[dedup v1](../tech/dedup-v1.md)；[系统架构](../tech/architecture.md) §5.2、§7.1；[命名法规 v0](../naming-code-v0.md)（下称"法规"）；[隐私文档](../data/privacy-terms-consent.md)；[遥测与指标口径](../data/telemetry-metrics.md)（下称"遥测"）；[普查、宇宙图与新手考察区](../data/census-atlas-novice-zone.md)（下称"普查文档"）；[研究者访谈计划](../research/interview-plan.md)；[法律备忘](../legal-memo.md)；[致 Chan 的许可请求](../outreach/chan-permission-request.en.md)；[研究简介](../outreach/research-brief.en.md)；[团队、预算与资助计划](../product/team-budget-funding.md)（下称"预算"）；[测量报告](../phase0/measurements.md)。截止和拍板人只以决策日志为准。
+> 依据：[GDD v0.3](../naturalis-gdd.md) §2.2、§3.1(2)、§3.2(3)、§3.2(5)、§9.3、§11.2–§11.3、§15、§16、§18.1、§19.1；[决策日志](../decision-log.md)；[第一阶段 PRD](../product/phase1-prd.md) F35、第 1、4、7、8 节；[数据模型](../tech/data-model.md) §3.1、§3.6、§5、§6.3、§8.1；[鉴定规格 assay v1](../tech/assay-v1.md)（下称 assay）；[dedup v1](../tech/dedup-v1.md)；[系统架构](../tech/architecture.md) §5.2、§7.1；[命名法规 v0](../naming-code-v0.md)（下称"法规"）；[隐私文档](../data/privacy-terms-consent.md)；[遥测与指标口径](../data/telemetry-metrics.md)（下称"遥测"）；[普查、宇宙图与新手考察区](../data/census-atlas-novice-zone.md)（下称"普查文档"）；[研究者访谈计划](../research/interview-plan.md)；[法律备忘](../legal-memo.md)；[致 Chan 的许可请求](../outreach/chan-permission-request.en.md)；[研究简介](../outreach/research-brief.en.md)；[团队、预算与资助计划](../product/team-budget-funding.md)（下称"预算"）；[测量报告](../phase0/measurements.md)。截止和拍板人只以决策日志为准。
 >
 > 标记：【待 D-0xx】、【待 ASn】等＝依赖还没拍板的条目或其他文档的提议；【新提议 SBn】＝本文新提的选择，汇总在文末；暂定＝猜测的数字；[verify]＝未核实的事实；[待法务确认]＝法律问题，本文不下结论。2026-10-30 起除 D-040 外的 D-001–D-061 都已采纳（D-028 只采纳了方法）。
 >
@@ -382,6 +382,7 @@ GDD §9.3 的集体名"博物志参与者"含暂定名，定名前写占位符�
 
 | 日期 | 版本 | 变更 |
 |---|---|---|
+| 2026-10-30 | v0 草稿（拍板后更新） | 按 2026-10-30 的拍板更新：已采纳条目的【待 D-0xx】改为引用；访谈新题按 D-051 等第二阶段；奖励形式按 D-019 写定；第 13 节删去已确认和已裁定的两项；文末加 E.1 说明 |
 | 2026-10-23 | v0 草稿（终审清理） | 终审清理：第 4.5 节按 PRD F35 的现行验收改写（A 没有非文献正例时验收不过、只上 B），删去请 PRD 改写的一句；合作协议第 12 项改指隐私文档清单第 36、37 项；第 13 节删去数据模型、系统架构、遥测、PRD F35 和隐私文档已改好的行，GDD §9.3 一行写明已记入 GDD 附录 D，D-007 一行改为表后一句（各文档已按 D-007 写，只剩 E.3 的取舍）；V3a 和 SB13 的遥测指标改为已写入 |
 | 2026-10-23 | v0 草稿（跨文档一致性修订） | 跨文档一致性修订：判定器更正的公告在周报被砍时改发网站公告页（单人时周报开工即砍）；物种页和个人档案的悬赏标记链到线框 4.5、4.7（线框已补）；S2 和出入表的 D-007 访谈新题加【待决策日志 E.3】标记 |
 | 2026-10-23 | v0 草稿（审查后修订） | 节号和 SB 编号不变：`collide-self/1` 补全到可实现（鉴定帧要求单簇、块与质量的定义、整数放置、换相位的取法、按速度选环面、跟踪与绕回保险、结局规则、`not_testable` 的传递），成本重算；B 改为登记时自动判定、不设指认，补已知正例；A 没有已知正例时按砍单第 2 项只上 B；阈值的自然波动改在 GC 组上测，基线不含文献条目，题面不转述哪些已知种满足；首解在第二平台重跑；许可、协议的法务标记、顾问时间、转达联系的依据、委员会回避 |

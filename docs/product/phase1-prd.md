@@ -2,7 +2,7 @@
 
 > 版本：v0 草稿（审查后修订，跨文档一致性修订）· 日期：2026-10-23 · 状态：待创始人审阅。第一阶段开工前必须定稿的三份 ★ 文档之一（[docs/README.md](../README.md)）· 负责：创始人/制作人；工程师到岗后审阅并修改自己负责的行
 >
-> 依据：[GDD v0.2](../naturalis-gdd.md) §3、§8、§10.2、§11.2、§13、§14、§17、§18、§19、§20、附录 D；[决策日志](../decision-log.md)；[第 0 阶段执行计划](../phase0-plan.md)；[命名法规 v0](../naming-code-v0.md)；[宇宙规范草案](../spec/lenia-q16-draft.md)；[法律备忘](../legal-memo.md)；[致 Chan 的许可请求](../outreach/chan-permission-request.en.md)；第 12 节列出的全部 P1 规格文档（都是 v0 草稿，待创始人审阅），其中 [数据模型](../tech/data-model.md)和[团队、预算与资助计划](./team-budget-funding.md)是本文的底稿。截止和拍板人只以决策日志为准；P1 文档的新提议登记在决策日志 E 组，两份文档互相冲突的（E.3）已于 2026-10-30 裁决为 D-049–D-061，本文就地引用。"D-xxx"指日志条目；A 组（D-001–D-012、D-041）之外，2026-10-30 创始人又采纳了 D-013–D-039、D-042–D-061，只有 D-040 仍是**提议**；D-028 只采纳了方法，R、T 范围等 W4 测量。W4 之后按第 0 阶段的[测量报告](../phase0/measurements.md)、[试玩日志](../phase0/play-log.md)汇总和[开放问题清单](../research/interview-plan.md)修订本文。
+> 依据：[GDD v0.3](../naturalis-gdd.md) §3、§8、§10.2、§11.2、§13、§14、§17、§18、§19、§20、附录 D；[决策日志](../decision-log.md)；[第 0 阶段执行计划](../phase0-plan.md)；[命名法规 v0](../naming-code-v0.md)；[宇宙规范草案](../spec/lenia-q16-draft.md)；[法律备忘](../legal-memo.md)；[致 Chan 的许可请求](../outreach/chan-permission-request.en.md)；第 12 节列出的全部 P1 规格文档（都是 v0 草稿，待创始人审阅），其中 [数据模型](../tech/data-model.md)和[团队、预算与资助计划](./team-budget-funding.md)是本文的底稿。截止和拍板人只以决策日志为准；P1 文档的新提议登记在决策日志 E 组，两份文档互相冲突的（E.3）已于 2026-10-30 裁决为 D-049–D-061，本文就地引用。"D-xxx"指日志条目；A 组（D-001–D-012、D-041）之外，2026-10-30 创始人又采纳了 D-013–D-039、D-042–D-061，只有 D-040 仍是**提议**；D-028 只采纳了方法，R、T 范围等 W4 测量。W4 之后按第 0 阶段的[测量报告](../phase0/measurements.md)、[试玩日志](../phase0/play-log.md)汇总和[开放问题清单](../research/interview-plan.md)修订本文。
 >
 > 标记：【待 D-0xx】＝依赖还没拍板的条目，按其建议写；【新提议】＝日志里还没有条目的新选择，汇总在第 13 节；"暂定"＝猜测，内测后校准；[verify]＝未核实的事实；[待法务确认]＝法律问题，本文不下结论。
 >

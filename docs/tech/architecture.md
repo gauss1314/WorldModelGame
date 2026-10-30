@@ -2,7 +2,7 @@
 
 > 版本：v0 底稿（审查后修订，跨文档一致性修订）· 日期：2026-10-23 · 状态：待创始人审阅；后端到岗后由后端改写 · 负责：后端与数据工程师（到岗前由创始人暂代，D-044）· 《博物志》和 Naturalis 都是暂定名（D-013）
 >
-> 依据：[GDD v0.2](../naturalis-gdd.md) §6、§8、§11.2、§14、§18.3、§19；[决策日志](../decision-log.md)；[第一阶段 PRD](../product/phase1-prd.md)（本文规定 F02 的归档部分、F17、F39，功能编号以 PRD 为准）；[数据模型](./data-model.md)（实体、字段、事件类型、承诺和链头以它为准）；[采集交接规格](./collection-handoff.md)（下称"交接规格"）；[鉴定规格 assay v1](./assay-v1.md)；[查重规格 dedup v1](./dedup-v1.md)；[隐私政策、用户协议与同意流程](../data/privacy-terms-consent.md)（下称"隐私文档"）；[团队、预算与资助计划](../product/team-budget-funding.md)（下称"预算"）；[宇宙规范草案](../spec/lenia-q16-draft.md)（下称"规范"）；[命名法规 v0](../naming-code-v0.md)（下称"法规"）；[法律备忘](../legal-memo.md)。截止和拍板人只以决策日志为准。
+> 依据：[GDD v0.3](../naturalis-gdd.md) §6、§8、§11.2、§14、§18.3、§19；[决策日志](../decision-log.md)；[第一阶段 PRD](../product/phase1-prd.md)（本文规定 F02 的归档部分、F17、F39，功能编号以 PRD 为准）；[数据模型](./data-model.md)（实体、字段、事件类型、承诺和链头以它为准）；[采集交接规格](./collection-handoff.md)（下称"交接规格"）；[鉴定规格 assay v1](./assay-v1.md)；[查重规格 dedup v1](./dedup-v1.md)；[隐私政策、用户协议与同意流程](../data/privacy-terms-consent.md)（下称"隐私文档"）；[团队、预算与资助计划](../product/team-budget-funding.md)（下称"预算"）；[宇宙规范草案](../spec/lenia-q16-draft.md)（下称"规范"）；[命名法规 v0](../naming-code-v0.md)（下称"法规"）；[法律备忘](../legal-memo.md)。截止和拍板人只以决策日志为准。
 >
 > 标记：【待 D-0xx】＝依赖仍未定的条目（D-040）；【待 PCn】、【待 CHn】等＝其他 P1 文档的提议，2026-10-30 已采纳为当前方案（决策日志 E.1）；【新提议 ARn】＝本文新提的选择，同为当前方案，汇总在文末；暂定＝猜测的数字；[verify]＝待核实；[待法务确认]＝法律问题，本文不下结论。A 组（D-001–D-012、D-041）之外，2026-10-30 创始人又采纳了 D-013–D-039、D-042–D-061，只有 D-040 仍是提议。
 >
