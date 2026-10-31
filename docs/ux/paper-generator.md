@@ -44,7 +44,7 @@
 
 | 来源 | 字段 | 用途 |
 |---|---|---|
-| 条目投影 `entry/1`（数据模型 §8.3） | `len`、`status`、`synonym_of`、`resolved_valid`、`objection_period_ends`、`objection_cleared_at`、`universe`（`spec`、`params`、`kf`、`gf`、`R`、`T`、`mu_q`、`sigma_q`、`beta`）、`type_specimen`（`n`、`state`、`cert`）、`name`（`genus`、`epithet`、`authority`、`year`、`common`）、`combinations`、`credits.*`（署名标识）、各人账户的 `authority_form`、`license.plates` | 标注；模式标本 S0 |
+| 条目投影 `entry/1`（数据模型 §8.3） | `len`、`status`、`synonym_of`、`resolved_valid`、`objection_period_ends`、`objection_cleared_at`、`universe`（`spec`、`params`、`kf`、`gf`、`R`、`T`、`mu_q`、`sigma_q`、`beta`）、`type_specimen`（`n`、`state`、`cert`）、`name`（`genus`、`epithet`、`authority`、`year`、`common`）、`combinations`、`credits.*`（署名标识）、各人账户的 `latin_credit`、`license.plates` | 标注；模式标本 S0 |
 | 鉴定证书（assay v1 §6.1） | `assay_frame`、`classes`、`locality`、`platonic`、`measures` 的 `period`、`shape_period`、`symmetry`、`angular_velocity`、`motion`、`speed`、`velocity`、`size_cells`、`size_r` | 取帧、版式、数据行、替代文字 |
 | 内容寻址对象（数据模型 §7） | 参数记录；S0 和鉴定帧的状态记录 | 起算帧 |
 
@@ -131,7 +131,7 @@ A4 竖版 210 × 297 mm；四边留白 15 mm；顶部 15 mm 是页眉（"图版 
   2. 编号 LEN-004127。俗名不上图版，放在物种页（D-058）。
   3. 状态词（下表）。
   4. 数据行：行为大类、对称、周期、速度，原样取自证书；规范和规则点（spec、μ、σ、R、T、β、n）；证书编号的前 12 位。
-  5. 署名：采集者、描述者，各写图版署名和角色（美术与文案规范第 6 节）。**图版署名**（D-064 第 8 条）：本人在账户里填了拉丁字母署名（`authority_form`，数据模型 §3.1）就用它；没填就写 "anon. " 加本人署名标识（数据模型 §5）的前 6 个十六进制字符，如 "anon. 7f3a2c"。图版上从不出现显示名或账户编号。删除账户后写 "Anonymous contributor"，学名后的署名按 D-048 选项 A 保留。普查采集者写运行编号（CEN-…）。
+  5. 署名：采集者、描述者，各写图版署名和角色（美术与文案规范第 6 节）。**图版署名**（D-064 第 8 条）：本人在账户里填了拉丁字母署名（`latin_credit`，数据模型 §3.1）就用它；没填就写 "anon. " 加本人署名标识（数据模型 §5）的前 6 个十六进制字符，如 "anon. 7f3a2c"。图版上从不出现显示名或账户编号。删除账户后写 "Anonymous contributor"，学名后的署名按 D-048 选项 A 保留。普查采集者写运行编号（CEN-…）。
   6. 诚实说明（第 5 节）、许可行（第 8 节）、生成器版本和输入哈希的前 12 位。
 - **图版只用拉丁字母**（D-058，同美术与文案规范 AC6）：学名、署名、`LEN-` 编号、Fig.、比例尺和状态词都是拉丁字母，一个条目一份 SVG、一个哈希，不按语言分版；中文（俗名、中文状态词）只在物种页。导出因此不需要可再发布的中文字体。下面状态表的中文列只用于物种页和界面。
 - **排版不依赖字体度量**：居中用 `text-anchor="middle"`；换行按字符数计数（Unicode 版本钉死在 `plate/1` 的清单里）；超长的学名或署名按词换行，全文留在替代文字里。所以 SVG 的字节与装了什么字体无关。

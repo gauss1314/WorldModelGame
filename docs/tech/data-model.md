@@ -69,7 +69,7 @@
 
 | 实体 | 字段（标记见 §2.3） | 公开 | 保留 |
 |---|---|---|---|
-| 账户 | `account_id` u64 私 · `email` 私 · `auth` 私 · `created_at` 私 · `adult_declared` 私（自我声明加邀请制）与 `region` 国家码 私（D-031）· `invite` 私：邀请码和标签"批次-渠道类型-语言"（如 `B1-C4-en`，只用于内部切片）【待 RC6】· `player_id` · `display_name`（署名表用）· `latin_credit` 可选的拉丁字母署名，图版上显示，没有时显示玩家 ID（D-058、D-064 第 8 条）· `authority_form` 拉丁字母署名形式（法规第 27 条第 2 款）· `salt` 32 字节 私 · `roles` team / panel · 配额、处罚 私 | 玩家 ID、显示名、拉丁字母署名；评审组成员（创始人）公开 | 账户存续；删除见 §6.4 |
+| 账户 | `account_id` u64 私 · `email` 私 · `auth` 私 · `created_at` 私 · `adult_declared` 私（自我声明加邀请制）与 `region` 国家码 私（D-031）· `invite` 私：邀请码和标签"批次-渠道类型-语言"（如 `B1-C4-en`，只用于内部切片）【待 RC6】· `player_id` · `display_name`（署名表用）· `latin_credit` 可选的拉丁字母署名（只用字母、数字、下划线、连字符和点，经名称审核），图版上显示；没有时图版写"anon. "加署名标识前 6 位十六进制，从不显示显示名或账户编号（D-058、D-064 第 8 条）· `authority_form` 拉丁字母署名形式（法规第 27 条第 2 款）· `salt` 32 字节 私 · `roles` team / panel · 配额、处罚 私 | 玩家 ID、显示名、拉丁字母署名；评审组成员（创始人）公开 | 账户存续；删除见 §6.4 |
 | 署名表 | `object`（LEN、prov、RUL-… 等）· `role` collector / describer / keen_eye / objector / reviewer / ruling_participant【待 PC18】/ census_selector / bounty_publisher（第二阶段）/ nominator【待 SB14】/ solver · `display` 显示名或"匿名贡献者" | 公开；**不进链**，每周重新生成 | 删除账户后，以后的导出改为"匿名贡献者"（D-048） |
 | 署名标识 | `sha256:` 串，构造见 §5 | 公开 | 永久；账户盐销毁后不能再关联到人 |
 | 同意记录 | `account_id` 私 · `level` 0 / 1（2 级预留）· `text_version` 同意文本的哈希 · `lang` · `set_at` · `source` 注册或设置页 · `ethics_ref`（预留给 2 级；第一阶段不提供 2 级，D-062 对 D-036 取 C） | 全部私密，只追加 | 账户存续；删除后 3 年，只留这几个字段（暂定，隐私文档 PC6）[待法务确认] |
